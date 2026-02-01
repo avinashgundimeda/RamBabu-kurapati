@@ -61,16 +61,38 @@ export function FishBackground() {
         const wobble = Math.sin(this.wobbleOffset) * 10; 
 
         // Wrap around horizontally
-        const buffer = 300; // Large buffer for the image
-        if (this.direction === 1 && this.x > width + buffer) {
-            this.x = -buffer;
+        const hBuffer = 300; // Large buffer for the image
+        if (this.direction === 1 && this.x > width + hBuffer) {
+            this.x = -hBuffer;
             this.baseY = Math.random() * height + scrollY; 
-        } else if (this.direction === -1 && this.x < -buffer) {
-            this.x = width + buffer;
+        } else if (this.direction === -1 && this.x < -hBuffer) {
+            this.x = width + hBuffer;
             this.baseY = Math.random() * height + scrollY;
         }
 
         this.y = this.baseY - scrollY * this.parallaxFactor + wobble;
+
+        // Wrap around vertically (Infinite Scroll Effect)
+        const vBuffer = 200; // Buffer so they don't pop in/out visibly
+        
+        // If fish moves above the viewport
+        if (this.y < -vBuffer) {
+            // Respawn at bottom
+            // We want newY = height + vBuffer
+            // height + vBuffer = newBaseY - scrollY * parallax + wobble
+            // newBaseY = height + vBuffer + scrollY * parallax - wobble
+            this.baseY = (height + vBuffer) + scrollY * this.parallaxFactor - wobble;
+            this.y = height + vBuffer; // Force update to avoid jitter
+        }
+        // If fish moves below the viewport
+        else if (this.y > height + vBuffer) {
+            // Respawn at top
+            // We want newY = -vBuffer
+            // -vBuffer = newBaseY - scrollY * parallax + wobble
+            // newBaseY = -vBuffer + scrollY * parallax - wobble
+            this.baseY = (-vBuffer) + scrollY * this.parallaxFactor - wobble;
+            this.y = -vBuffer;
+        }
       }
 
       draw() {
