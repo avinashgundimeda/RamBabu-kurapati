@@ -4,7 +4,7 @@ This project is a professional portfolio website built for my client (RamBabu Ku
 
 The website is designed to be fast, responsive, and easy to maintain.
 
-About the Project
+About the Project:
 
 This is a client portfolio web application developed to represent the client’s professional identity online.
 
@@ -28,7 +28,7 @@ professional profile presentation
 
 showcasing skills and projects
 
-Tech Stack
+Tech Stack:
 
 React
 
@@ -50,7 +50,7 @@ Reusable UI components
 
 Easy content customization
 
-Installation & Setup
+Installation & Setup:
 git clone https://github.com/avinashgundimeda/RamBabu-kurapati.git
 
 cd RamBabu-kurapati
