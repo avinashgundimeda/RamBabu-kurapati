@@ -52,9 +52,9 @@ export function AnimatedBackground() {
         ctx.fillStyle = this.color;
         ctx.fill();
         
-        // Glow effect
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.color;
+        // Glow effect - Removed for performance
+        // ctx.shadowBlur = 10;
+        // ctx.shadowColor = this.color;
       }
     }
 

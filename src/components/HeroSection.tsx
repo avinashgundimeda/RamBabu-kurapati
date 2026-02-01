@@ -6,9 +6,9 @@ import virusIcon from '@/assets/images/virus.svg';
 import crabIcon from '@/assets/images/crab.svg';
 
 const roles = [
-  'Aquaculture Research Scientist',
-  'Molecular Biologist',
-  'Shrimp Disease Specialist',
+  'M.S. Aquaculture',
+  'Graduate Research Assistant',
+  'UAPB',
 ];
 
 export function HeroSection() {
@@ -72,7 +72,7 @@ export function HeroSection() {
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               Hi, I'm{' '}
-              <span className="neon-text">Ram Babu Kurapti</span>
+              <span className="neon-text">Ram Kurapti</span>
             </h1>
 
             <div className="h-16 sm:h-20 flex items-center justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
@@ -117,7 +117,7 @@ export function HeroSection() {
               </div>
               
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 flex items-center justify-center animate-pulse-glow">
+              {/* <div className="absolute -top-4 -right-4 w-20 h-20 flex items-center justify-center animate-pulse-glow">
                 <img src={crabIcon} alt="Crab" className="w-12 h-12 object-contain" />
               </div>
               <div className="absolute top-1/2 -left-12 w-16 h-16  flex items-center justify-center animate-pulse-glow" style={{ animationDelay: '2s' }}>
@@ -125,7 +125,7 @@ export function HeroSection() {
               </div>
               <div className="absolute -bottom-4 -left-4 w-16 h-16 flex items-center justify-center animate-pulse-glow" style={{ animationDelay: '1s' }}>
                 <span className="text-2xl">🦐</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

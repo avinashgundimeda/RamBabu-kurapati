@@ -11,14 +11,18 @@ import projectreview from '@/assets/images/TableImages/projectreview.jpeg';
 const experience = [
   {
     title: 'Graduate Research Assistant – UAPB',
-    organization: 'Aquaculture Research Institute',
+    organization: 'Driving data-driven shrimp health and nutrition research using advanced laboratory and AI techniques.',
     period: '2025 - Present',
-    description: 'Leading research on AHPND pathogenesis and developing novel diagnostic tools for shrimp diseases.',
+    description: 'Conduct shrimp nutrition and disease-challenge trials focusing on larval development, immune responses, and survival outcomes.Lead Artemia life-stage optimization studies for Litopenaeus vannamei , resulting in improved post-larval performance.',
+
     details: [
-      'Investigating molecular mechanisms of AHPND pathogenesis in Penaeus vannamei using CRISPR/Cas9 technology.',
-      'Developing rapid, field-deployable diagnostic kits (LAMP-based) for early detection of shrimp pathogens.',
-      'Conducting complex histopathological analysis of shrimp tissues to identify disease biomarkers.',
-      'Collaborating with industry partners to test novel therapeutic interventions in controlled aquaculture environments.'
+      'Investigate AHPND disease progression using histopathology and gene-expression analysis to track organ-specific infection pathways.',
+        'Perform histological processing and staining (H&E, PAS), microbial culture, pathogen isolation, and antimicrobial testing.',
+        'Apply molecular techniques including DNA/RNA extraction, PCR/qPCR, and gel electrophoresis.',
+        'Analyze datasets using R and SAS 9.4; develop Python-based CNN and YOLO workflows for automated image processing.',
+        'Process microbiome datasets using 16S rRNA sequencing and bioinformatics pipelines.',
+        'Maintain SOP-compliant laboratory documentation, biosafety procedures, and inventory systems.',
+        'Present research findings at conferences and contribute to peer-reviewed manuscripts.'
     ]
   },
   // {
@@ -199,9 +203,9 @@ export function ProfessionalSummarySection() {
                       <span className="text-sm text-primary font-medium">{item.period}</span>
                     </div>
                     <p className="text-muted-foreground mb-2">{item.organization}</p>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                    
-                    <div className="mt-4 flex items-center text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                      {/* <p className="text-sm text-muted-foreground ">{item.description}</p> */}
+                      <p className="text-sm text-muted-foreground ">{item.description}</p>
+                    <div className="mt-4 flex items-center text-xs text-primary group-hover:opacity-100 transition-opacity transform translate-y-2">
                       <span>Click for details</span>
                       <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -261,7 +265,7 @@ function ExperienceOverlay({ item, onClose }: { item: typeof experience[0]; onCl
             <span className="text-muted-foreground">{item.period}</span>
           </div>
           <p className="text-base text-muted-foreground/90 leading-relaxed italic border-l-2 border-primary/50 pl-4">
-            {item.description}
+            Conduct shrimp nutrition and disease-challenge trials focusing on larval development, immune responses, and survival outcomes.Lead Artemia life-stage optimization studies for Litopenaeus vannamei , resulting in improved post-larval performance.'
           </p>
         </div>
 

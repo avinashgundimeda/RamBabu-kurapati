@@ -1,5 +1,24 @@
 import { useEffect, useRef } from 'react';
-import fishImgSrc from '../assets/images/fish.svg';
+import shrimpImgSrc from '../assets/images/Lshrimp.png';
+import crabImgSrc from '../assets/images/crabb.png';
+import jellyImgSrc from '../assets/images/jelly.png';
+import oysterImgSrc from '../assets/images/oyesters.png';
+
+type CreatureType = 'shrimp' | 'crab' | 'jelly' | 'oyster';
+
+interface CreatureConfig {
+  type: CreatureType;
+  src: string;
+  count: number;
+  baseSize: number;
+}
+
+const CREATURES: CreatureConfig[] = [
+  { type: 'shrimp', src: shrimpImgSrc, count: 3, baseSize: 100 },
+  { type: 'crab', src: crabImgSrc, count: 2, baseSize: 80 },
+  { type: 'jelly', src: jellyImgSrc, count: 3, baseSize: 90 },
+  { type: 'oyster', src: oysterImgSrc, count: 3, baseSize: 70 },
+];
 
 export function FishBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -23,115 +42,166 @@ export function FishBackground() {
     };
     window.addEventListener('scroll', handleScroll);
 
-    const fishImage = new Image();
-    fishImage.src = fishImgSrc;
+    // Preload images
+    const images: Record<string, HTMLImageElement> = {};
+    CREATURES.forEach(config => {
+      const img = new Image();
+      img.src = config.src;
+      images[config.type] = img;
+    });
 
-    class Fish {
+    class MarineCreature {
+      type: CreatureType;
       x: number;
       y: number;
       baseY: number;
-      speed: number;
+      speedX: number;
+      speedY: number;
       size: number;
-      direction: number; // 1 for right, -1 for left
-      parallaxFactor: number;
-      wobbleOffset: number;
-      wobbleSpeed: number;
+      direction: number; // 1 (right) or -1 (left)
+      phase: number;
+      oscillationSpeed: number;
 
-      constructor() {
+      constructor(type: CreatureType) {
+        this.type = type;
         this.direction = Math.random() > 0.5 ? 1 : -1;
-        // Reducing size to match "1 to 2.5 cm" roughly. 
-        // Assuming base image is large, we reduce scale significantly. 
-        // 1cm ~ 38px. If image is 1024px, we need 0.04 scale for 1cm.
-        // Let's go with a slightly visible range: 0.08 to 0.12 scale.
-        this.size = Math.random() * 0.03 + 0.06; 
-        this.x = Math.random() * width;
-        this.baseY = Math.random() * height * 1.5; // Spread vertically
+        this.phase = Math.random() * Math.PI * 2;
+        this.oscillationSpeed = Math.random() * 0.05 + 0.02;
+
+        const config = CREATURES.find(c => c.type === type)!;
+        // Scale down significantly as per previous logic, but adaptive to screen
+        // Previous logic: ~0.06 to 0.1 scale.
+        const scale = Math.random() * 0.05 + 0.05; 
+        this.size = scale; 
+
+        if (type === 'crab') {
+           this.x = Math.random() * width;
+           this.baseY = height * (0.8 + Math.random() * 0.2); 
+           this.speedX = (Math.random() * 0.3 + 0.2) * this.direction;
+           this.speedY = 0;
+        } else if (type === 'jelly') {
+           // Jellyfish floating vertically
+           this.x = Math.random() * width;
+           this.baseY = Math.random() * height;
+           this.speedX = (Math.random() * 0.5 - 0.1); 
+           this.speedY = (Math.random() * 0.5 + 0.2) * -1;
+        } else if (type === 'oyster') {
+           // Oysters largely static, maybe very slow drift
+           this.x = Math.random() * width;
+           this.baseY = Math.random() * height;
+           this.speedX = (Math.random() * 0.1 - 0.05); 
+           this.speedY = (Math.random() * 0.1 - 0.05);
+        } else {
+           // Shrimp (default swimmer)
+           this.x = Math.random() * width;
+           this.baseY = Math.random() * height;
+           this.speedX = (Math.random() * 1.5 + 0.8) * this.direction;
+           this.speedY = 0;
+        }
+        
         this.y = this.baseY;
-        this.speed = (Math.random() * 1 + .8) * this.direction;
-        this.parallaxFactor = Math.random() * 0.2 + 0.05;
-        this.wobbleOffset = Math.random() * Math.PI * 2;
-        this.wobbleSpeed = Math.random() * 0.06 + 0.015;
       }
 
       update() {
-        this.x += this.speed;
-        this.wobbleOffset += this.wobbleSpeed;
+        this.phase += this.oscillationSpeed;
 
-        // Gentle vertical wobble to simulate swimming
-        const wobble = Math.sin(this.wobbleOffset) * 10; 
-
-        // Wrap around horizontally
-        const hBuffer = 300; // Large buffer for the image
-        if (this.direction === 1 && this.x > width + hBuffer) {
-            this.x = -hBuffer;
-            this.baseY = Math.random() * height + scrollY; 
-        } else if (this.direction === -1 && this.x < -hBuffer) {
-            this.x = width + hBuffer;
-            this.baseY = Math.random() * height + scrollY;
+        // --- MOVEMENT LOGIC ---
+        if (this.type === 'shrimp') {
+             // Swim horizontal + slight sine wave
+             this.x += this.speedX;
+             this.y = this.baseY + Math.sin(this.phase) * 10 - scrollY * 0.2;
+        } 
+        else if (this.type === 'crab') {
+             // Crawl horizontal
+             this.x += this.speedX;
+             // Crabs stick to "ground" relative to screen, but let's let them scroll with page slightly
+             this.y = this.baseY - scrollY * 0.1; 
+        } 
+        else if (this.type === 'jelly') {
+             // Move vertical
+             this.y += this.speedY; // Moving up
+             this.x += Math.sin(this.phase) * 0.5; // Slight side wobble
+             
+             // Wrap vertical specific for jelly
+             if (this.y < -100) this.y = height + 100;
+             return; 
+        }
+        else if (this.type === 'oyster') {
+             // Drift very slowly
+             this.x += this.speedX;
+             this.baseY += this.speedY;
+             this.y = this.baseY - scrollY * 0.2;
         }
 
-        this.y = this.baseY - scrollY * this.parallaxFactor + wobble;
+        // --- WRAP AROUND ---
+        const hBuffer = 200;
+        if (this.x > width + hBuffer) this.x = -hBuffer;
+        else if (this.x < -hBuffer) this.x = width + hBuffer;
 
-        // Wrap around vertically (Infinite Scroll Effect)
-        const vBuffer = 200; // Buffer so they don't pop in/out visibly
-        
-        // If fish moves above the viewport
-        if (this.y < -vBuffer) {
-            // Respawn at bottom
-            // We want newY = height + vBuffer
-            // height + vBuffer = newBaseY - scrollY * parallax + wobble
-            // newBaseY = height + vBuffer + scrollY * parallax - wobble
-            this.baseY = (height + vBuffer) + scrollY * this.parallaxFactor - wobble;
-            this.y = height + vBuffer; // Force update to avoid jitter
-        }
-        // If fish moves below the viewport
-        else if (this.y > height + vBuffer) {
-            // Respawn at top
-            // We want newY = -vBuffer
-            // -vBuffer = newBaseY - scrollY * parallax + wobble
-            // newBaseY = -vBuffer + scrollY * parallax - wobble
-            this.baseY = (-vBuffer) + scrollY * this.parallaxFactor - wobble;
-            this.y = -vBuffer;
+        // Specific Y Wrap for non-jelly (Jelly moves continuously up)
+        if (this.type !== 'jelly') {
+            const vBuffer = 200;
+            // Parallax wrap
+            if (this.y < -vBuffer) {
+                this.baseY += height + vBuffer * 2;
+                // this.y will update next frame
+            } else if (this.y > height + vBuffer) {
+                this.baseY -= height + vBuffer * 2;
+            }
+        } else {
+            // Jelly wrap logic
+             if (this.y < -200) {
+                 this.y = height + 200;
+             }
         }
       }
 
       draw() {
-        if (!ctx || !fishImage.complete) return;
-        
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.scale(this.direction * this.size, this.size); 
-        
-        // Remove black background from the image using screen blending
-        ctx.globalCompositeOperation = 'screen';
-        
-        // Draw image centered
-        // Assuming image is roughly 512x512 or similar. 
-        // We draw it relative to its center.
-        const imgWidth = fishImage.naturalWidth || 100;
-        const imgHeight = fishImage.naturalHeight || 100;
-        
-        ctx.drawImage(fishImage, -imgWidth / 2, -imgHeight / 2);
+        const img = images[this.type];
+        if (!img || !img.complete) return;
 
-        ctx.restore();
+        ctx!.save();
+        ctx!.translate(this.x, this.y);
+
+        // --- TRANSFORMS PER TYPE ---
+        if (this.type === 'oyster') {
+             // "Breathing" / Opening effect using scale
+             const breathe = 1 + Math.sin(this.phase) * 0.1; // Scale 0.9 to 1.1
+             ctx!.scale(this.size * breathe, this.size * breathe);
+        } 
+        else if (this.type === 'jelly') {
+             // Pulsating vertical stretch
+             const squish = 1 + Math.sin(this.phase) * 0.05;
+             ctx!.scale(this.size * squish, this.size / squish);
+        }
+        else {
+             // Standard flip for direction
+             ctx!.scale(this.direction * this.size, this.size);
+        }
+
+        ctx!.globalCompositeOperation = 'screen'; // Blend mode
+        
+        const w = img.naturalWidth || 100;
+        const h = img.naturalHeight || 100;
+        ctx!.drawImage(img, -w/2, -h/2);
+
+        ctx!.restore();
       }
     }
 
-    const fishes: Fish[] = [];
-    const fishCount = 10; // Reduced count
-
-    // Initialize fishes only after image loads to ensure dimensions are known?
-    // Or just start loop and they draw when ready.
-    for (let i = 0; i < fishCount; i++) {
-        fishes.push(new Fish());
-    }
+    const creatures: MarineCreature[] = [];
+    CREATURES.forEach(c => {
+        for(let i=0; i<c.count; i++) {
+            creatures.push(new MarineCreature(c.type));
+        }
+    });
 
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
       
-      fishes.forEach(f => {
-        f.update();
-        f.draw();
+      creatures.forEach(c => {
+        c.update();
+        c.draw();
       });
 
       requestAnimationFrame(animate);
