@@ -11,102 +11,72 @@ import {
 
 const projects = [
   {
-    icon: FlaskConical,
-    title: 'Tracking AHPND Infection Progression in Shrimp',
-    tools: ['qPCR', 'Histopathology', 'Metagenomics'],
-    description:
-      'Comprehensive study of Acute Hepatopancreatic Necrosis Disease (AHPND) progression using multi-modal molecular and histological approaches.',
-    impact:
-      'Identified key biomarkers for early-stage detection, enabling intervention 48 hours earlier than conventional methods.',
-    methodology:
-      'Time-series sampling of experimentally infected shrimp at 6-hour intervals over 72 hours. Samples analyzed via RT-qPCR for toxin gene expression, H&E staining for histopathological changes, and 16S rRNA sequencing for microbiome shifts.',
-    results:
-      'Established a 5-biomarker panel with 96% sensitivity for detecting infection within 12 hours of exposure. Microbiome dysbiosis precedes clinical symptoms by 18-24 hours.',
-    publications: '2 peer-reviewed papers published; 1 patent pending for diagnostic assay.',
-    duration: '2021 - Present',
-    funding: 'National Research Foundation Grant ($250,000)',
-  },
-  {
-    icon: TestTube,
-    title: 'Artemia Life-Stage Optimization',
-    tools: ['Live Feed Culture', 'Nutritional Analysis', 'Growth Modeling'],
-    description:
-      'Optimization of Artemia enrichment protocols and feeding schedules for improved larval shrimp nutrition and survival.',
-    impact:
-      'Achieved 23% improvement in post-larval survival rates across multiple commercial hatcheries.',
-    methodology:
-      'Systematic evaluation of 15 enrichment formulations across 3 Artemia strains. Fatty acid profiles analyzed via GC-MS. Feeding trials conducted in 500L larval rearing tanks with standardized conditions.',
-    results:
-      'Developed optimized enrichment protocol with ideal DHA:EPA ratio of 2:1. Feeding schedule reduces Artemia consumption by 15% while improving larval growth rates.',
-    publications: '1 peer-reviewed paper; industry adoption by 3 major hatcheries.',
-    duration: '2020 - 2022',
-    funding: 'Industry Partnership with AquaFeed Corp ($75,000)',
-  },
-  {
-    icon: Dna,
-    title: 'Endolysin Antimicrobial Testing',
-    tools: ['Recombinant Protein Expression', 'MIC Assays', 'In vivo Trials'],
-    description:
-      'Development and testing of bacteriophage-derived endolysins as novel antimicrobials against Vibrio parahaemolyticus.',
-    impact:
-      'Discovered three endolysin candidates with MIC values below 10 μg/mL against AHPND-causing strains.',
-    methodology:
-      'Phage isolation from coastal sediments, genome sequencing, and endolysin gene identification. Recombinant expression in E. coli followed by purification and activity assays against Vibrio panel.',
-    results:
-      'Lead candidate LysVp3 shows broad-spectrum activity against 12/15 tested Vibrio strains. Stable at pond temperatures (28-32°C) for >6 hours. No cytotoxicity to shrimp hepatopancreas cells.',
-    publications: '1 peer-reviewed paper; provisional patent filed.',
-    duration: '2022 - Present',
-    funding: 'Antimicrobial Research Initiative ($180,000)',
+  icon: FlaskConical,
+  title: 'Optimizing Artemia Life-Stage Utilization and AI-Driven Phenotyping to Improve Performance and Health of Litopenaeus vannamei Post-Larvae',
+  tools: ['Precision Nutrition', 'Disease Resilience', 'AI Monitoring'],
+  description:
+    'Integrated live-feed optimization, histopathology, microbiome profiling and computer-vision analytics to identify Artemia feeding strategies that enhance shrimp growth, survival and stress resilience.',
+  impact:
+    'Evidence-based Artemia feeding strategies combined with AI monitoring tools to improve hatchery-stage productivity and disease preparedness in Litopenaeus vannamei post-larvae.',
+  methodology:
+    'Controlled feeding trials comparing live and decapsulated Artemia were coupled with histology, qPCR-based stress-gene profiling and 16S rRNA microbiome sequencing. YOLO/CNN pipelines automated growth measurements and survival tracking alongside GLM-based statistical modeling.',
+  results:
+    'Live Artemia maximized growth and survival, while mixed diets optimized gut microbiome diversity and minimized stress-gene expression.',
+  publications:
+    'One peer-reviewed review article published in Reviews in Aquaculture (IF ≈ 11.3). One primary research article is currently under development.',
+  duration: 'August 2024 – December 2026',
+  funding: 'Industry-funded – Great Salt Lake Artemia (GSLA)',
   },
   {
     icon: Bot,
-    title: 'AI-Based Shrimp Health Detection',
-    tools: ['TensorFlow', 'Computer Vision', 'Edge Computing'],
+    title: 'Organ-to-Organ Progression of Acute Hepatopancreatic Necrosis Disease (AHPND) in Litopenaeus vannamei Using Time-Resolved Molecular Diagnostics',
+    tools: ['Pathogenesis Mapping', 'qPCR Surveillance', 'Disease Dynamics'],
     description:
-      'Deep learning system for real-time visual detection of disease symptoms and behavioral anomalies in shrimp populations.',
-    impact:
-      'Model achieves 94% accuracy in detecting early signs of white spot syndrome from pond camera footage.',
-    methodology:
-      'Training dataset of 50,000+ annotated images from commercial farms. YOLOv5 architecture optimized for edge deployment on Raspberry Pi 4 units with coral TPU accelerators.',
-    results:
-      'System processes 30 fps video streams, detecting abnormal swimming patterns, color changes, and mortality events. Alert system reduces response time from hours to minutes.',
-    publications: '2 peer-reviewed papers; open-source code repository with 200+ stars.',
-    duration: '2021 - Present',
-    funding: 'AI for Agriculture Grant ($200,000)',
+      'Tracked the spatiotemporal progression of Vibrio parahaemolyticus infection across shrimp organs using daily molecular diagnostics to define the sequence of tissue invasion during AHPND.',
+    impact:'Generated mechanistic insight into how AHPND spreads within shrimp, supporting earlier detection strategies and targeted intervention development for commercial farms.',
+    methodology:'•	Shrimp were reared for 90 days, experimentally challenged with Vibrio parahaemolyticus, and sampled daily to quantify pathogen loads in major organs by qPCR. Histopathology and longitudinal statistical modeling were integrated to reconstruct organ-specific infection trajectories.',
+    results:'•	Daily qPCR revealed an ordered progression of bacterial colonization across tissues, identifying early-invaded organs predictive of downstream systemic infection.',
+    publications: 'One primary research manuscript in preparation based on this study is under development.',
+    duration: 'August 2024 – December 2026',
+    funding: 'Institutional and research-grant supported (UAPB Aquaculture Program)',
   },
-  {
-    icon: Microscope,
-    title: 'Microbiome Profiling',
-    tools: ['16S rRNA Sequencing', 'Shotgun Metagenomics', 'Bioinformatics'],
-    description:
-      'Characterization of gut and environmental microbiome signatures associated with healthy vs. diseased shrimp.',
-    impact:
-      'Established microbiome-based health index now used by three research institutions for monitoring.',
-    methodology:
-      'Longitudinal sampling of gut, water, and sediment microbiomes across 6 farms over 12 months. 16S rRNA for community profiling; shotgun metagenomics for functional analysis.',
-    results:
-      'Identified 23 bacterial genera significantly associated with disease resistance. Developed Microbiome Health Index (MHI) with 89% predictive accuracy for disease outbreaks 7 days in advance.',
-    publications:
-      '3 peer-reviewed papers; publicly available database of 1,200+ microbiome samples.',
-    duration: '2019 - 2022',
-    funding: 'Microbiome Research Consortium ($300,000)',
-  },
-  {
-    icon: Leaf,
-    title: 'Feed Functionalization Trials',
-    tools: ['Probiotics', 'Immunostimulants', 'Growth Performance Trials'],
-    description:
-      'Evaluation of functional feed additives including probiotics and plant-derived immunostimulants for disease prevention.',
-    impact:
-      'Validated probiotic blend reducing AHPND mortality by 35% in controlled challenge trials.',
-    methodology:
-      'Randomized controlled trials with 12 treatment groups across 3 replicate tanks each. 60-day grow-out trials followed by controlled disease challenge. Growth, survival, and immune parameters measured.',
-    results:
-      'Optimal probiotic dose of 10^8 CFU/kg feed. Synergistic effect observed when combined with β-glucan at 0.1%. Feed conversion ratio improved by 8% in probiotic groups.',
-    publications: '2 peer-reviewed papers; commercial licensing agreement signed.',
-    duration: '2020 - 2023',
-    funding: 'Functional Feed Innovation Grant ($150,000)',
-  },
+ {
+  icon: Leaf,
+  title: 'Sustainable Feeding Strategies for Juvenile Largemouth Bass: Effects of Spirulina, Yeast, and Probiotics on Growth and Intestinal Health',
+  tools: ['Functional Feeds', 'Gut Health', 'Sustainable Aquaculture'],
+  description:
+    'Evaluated Spirulina-, yeast- and probiotic-supplemented diets in juvenile Micropterus salmoides to improve feed acceptance, growth performance, intestinal morphology, microbial abundance and survival while reducing reliance on fishmeal-based feeds.',
+  impact:
+    'Identified functional feed additives that enhance early-stage largemouth bass performance and intestinal health, supporting more sustainable U.S. aquaculture production systems.',
+  methodology:
+    'Juvenile bass were fed low-density diets supplemented with Spirulina, yeast or probiotics and assessed for growth, survival, intestinal histomorphology and gut microbial abundance. Comparative statistical analyses quantified treatment effects on dietary transition efficiency and intestinal health indicators.',
+  results:
+    'Probiotic-supplemented diets produced the highest gut microbial abundance, improved intestinal structure and significantly increased survival, with yeast also showing strong sustainability potential.',
+  publications:
+    'One primary research manuscript as a co-author.',
+  duration: 'August 2024 – December 2026',
+  funding:
+    'Institutional and competitive research-grant supported (UAPB Aquaculture Program)',
+},
+
+{
+  icon: Dna,
+  title: 'Engineered Endolysins as Enzybiotics: Synergistic Antibiofilm and Bactericidal Activity Against Methicillin-Resistant Staphylococcus aureus',
+  tools: ['Enzybiotics', 'Biofilm Eradication', 'Antimicrobial Resistance'],
+  description:
+    'Engineered multi-domain bacteriophage-derived endolysins and evaluated their bactericidal and antibiofilm activity against clinical MRSA isolates to develop next-generation enzyme-based therapeutics.',
+  impact:
+    'Identified synergistic enzyme combinations with potent activity against drug-resistant and biofilm-associated Staphylococcus aureus, supporting translational antimicrobial development.',
+  methodology:
+    'Recombinant endolysins were cloned, expressed in E. coli and purified using Ni-NTA chromatography. Antimicrobial activity against clinical isolates was evaluated using MIC assays, turbidity-reduction and biofilm-inhibition assays, while zymography, plate-lysis assays and synergistic combination testing quantified muralytic and antibiofilm performance.',
+  results:
+    'Lysn1 and Lysn3 demonstrated broad MRSA killing, up to ~80% biofilm disruption and a four-fold MIC reduction when applied in combination.',
+  publications:
+    'Manuscript prepared for Scientific Reports (Nature Portfolio).',
+  duration: 'August 2024 – December 2026',
+  funding:
+    'Institutional and collaborative biomedical research funding.',
+},
 ];
 
 interface ProjectType {

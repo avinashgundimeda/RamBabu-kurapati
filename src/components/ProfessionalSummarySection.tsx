@@ -8,6 +8,7 @@ import teamMembers from '@/assets/images/TableImages/team.jpeg';
 import reviewteam from '@/assets/images/TableImages/reviewteam.jpeg';
 import projectreview from '@/assets/images/TableImages/projectreview.jpeg';
 
+
 const experience = [
   {
     title: 'Graduate Research Assistant – UAPB',
@@ -29,7 +30,6 @@ const experience = [
       'Microbiology & Molecular Diagnostics	82%',
       'AI-driven computer-vision pipelines	65%',
       'Statistical Analysis  (R, SAS 9.4, and Excel)	60%',
-      'Professional competency – No changes needed'
     ]
   },
   // {
@@ -71,49 +71,38 @@ interface Publication {
   publicLink: string;
   doiLink: string;
   image: string;
+  description: string;
   type: 'research' | 'review';
 }
 
 const publications: Publication[] = [
   {
-    title: 'Novel endolysin candidates for AHPND prevention in Penaeus vannamei',
-    impact: 'High',
-    publicLink: '#',
-    doiLink: '#',
+    title: 'Effect of Artemia–Microparticle Co-Feeding on Litopenaeus vannamei Rearing',
+    impact: '0.5',
+    publicLink: 'https://doi.org/10.33552/GJNFS.2025.05.000618',
+    doiLink: 'https://doi.org/10.33552/GJNFS.2025.05.000618',
     image: hackathon,
+    description: 'This study evaluates the effect of increasing dietary levels of Artemia franciscana co-fed with formulated microparticle diets on the growth, survival and overall performance of Litopenaeus vannamei during early rearing. The aim is to identify an efficient feeding strategy that improves larval nutrition while reducing dependence on live feed alone.',
     type: 'research',
+
   },
   {
-    title: 'AI-based early detection of white spot syndrome in shrimp farms',
-    impact: 'Medium',
-    publicLink: '#',
-    doiLink: '#',
-    image: seminar,
-    type: 'research',
+    title : 'Artemia Enrichment and Fatty Acid Improvement in Aquaculture',
+    impact : '11.3',
+    publicLink : 'https://doi.org/10.1111/raq.70080',
+    doiLink : 'https://doi.org/10.1111/raq.70080',
+    image : 'teamMembers',
+    description: 'This review critically examines modern Artemia enrichment strategies with a strong focus on improving fatty acid profiles, especially essential fatty acids (EPA, DHA and ARA), for aquaculture species. It highlights how enriched Artemia franciscana, when co-fed with formulated microparticle diets, enhances nutrient delivery, feed efficiency and larval performance in Litopenaeus vannamei. The study also discusses enrichment media, feeding protocols and their influence on growth, survival, stress resistance and larval quality. Overall, the review provides practical guidelines for hatchery managers to optimize live-feed enrichment and reduce nutritional limitations in early-stage shrimp and fish culture.',
+    type : 'review',
   },
   {
-    title: 'Microbiome dynamics during AHPND infection progression',
-    impact: 'High',
-    publicLink: '#',
-    doiLink: '#',
-    image: teamMembers,
-    type: 'research',
-  },
-  {
-    title: 'A comprehensive review of probiotics in shrimp aquaculture',
-    impact: 'Very High',
-    publicLink: '#',
-    doiLink: '#',
-    image: reviewteam,
-    type: 'review',
-  },
-  {
-    title: 'Antimicrobial peptides in aquaculture: Current status and future perspectives',
-    impact: 'High',
-    publicLink: '#home',
-    doiLink: '#',
-    image: projectreview,
-    type: 'review',
+    title : 'Viral Disease Histopathology in Finfish Aquaculture',
+    impact : '11.3',
+    publicLink : 'https://doi.org/10.1111/raq.70080',
+    doiLink : 'https://doi.org/10.1111/raq.70080',
+    image : 'hackathon',
+    description: 'This review summarizes organ-specific histopathological changes caused by major viral diseases in cultured finfish, focusing on lesions observed in the gills, liver, kidney, spleen and nervous tissues. It explains how characteristic cellular and tissue-level alterations support early and accurate diagnosis of viral infections in aquaculture systems. The study aligns diagnostic interpretation and reporting practices with guidelines provided by the World Organisation for Animal Health, strengthening disease surveillance, confirmation procedures and biosecurity decision-making in hatcheries and grow-out farms. The review also highlights the role of histopathology as a complementary tool to molecular diagnostics for improving outbreak management and reducing economic losses in finfish aquaculture.',
+    type : 'review',
   },
 ];
 
@@ -150,10 +139,10 @@ export function ProfessionalSummarySection() {
                 onClick={() => setSelectedPub(pub)}
               >
                 <td className="px-3 py-4">{idx + 1}</td>
-                <td className="px-3 py-4 font-medium text-foreground group-hover:text-primary transition-colors">
+                <td className="px-3 py-4 font-medium text-foreground">
                   {pub.title}
-                  <span className="block text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity mt-1">
-                    Click for more details
+                  <span className="block text-xs text-primary opacity-100 mt-1 ml-1">
+                    More Info
                   </span>
                 </td>
                 <td className="px-3 py-4">{pub.impact}</td>
@@ -213,8 +202,8 @@ export function ProfessionalSummarySection() {
                       {/* <p className="text-sm text-muted-foreground ">{item.description}</p> */}
                       <p className="text-sm text-muted-foreground ">{item.description}</p>
                         {/* <p className='text-sm text-muted-foreground '>{item.skills.join(', ')}</p> */}
-                    <div className="mt-3 flex items-center text-xs text-primary group-hover:opacity-100 transition-opacity transform translate-y-2">
-                      <span>Click for details</span>
+                    <div className="mt-3 flex items-center text-xs text-primary transform translate-y-2">
+                      <span>More Information</span>
                       <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -249,13 +238,78 @@ export function ProfessionalSummarySection() {
   );
 }
 
+
+function SkillCircle({ skill }: { skill: string }) {
+  const parts = skill.split('\t');
+  const name = parts[0];
+  const percentStr = parts[1] || '';
+  const percent = parseInt(percentStr.replace('%', ''), 10);
+
+  if (isNaN(percent)) {
+    return (
+      <span className="px-4 py-2 rounded-full bg-secondary/10 border border-primary/20 text-primary text-sm">
+        {skill}
+      </span>
+    );
+  }
+
+  const radius = 35;
+  const stroke = 4;
+  const normalizedRadius = radius - stroke * 2;
+  const circumference = normalizedRadius * 2 * Math.PI;
+  const strokeDashoffset = circumference - (percent / 100) * circumference;
+
+  return (
+    <div className="flex flex-col items-center gap-3 p-2 group hover:scale-105 transition-transform duration-300">
+      <div className="relative flex items-center justify-center">
+        {/* Glow effect */}
+        <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        
+        <svg
+          height={radius * 2}
+          width={radius * 2}
+          className="rotate-[-90deg] drop-shadow-[0_0_10px_rgba(var(--primary),0.3)]"
+        >
+          <circle
+            stroke="currentColor"
+            fill="transparent"
+            strokeWidth={stroke}
+            r={normalizedRadius}
+            cx={radius}
+            cy={radius}
+            className="text-secondary/30"
+          />
+          <circle
+            stroke="currentColor"
+            fill="transparent"
+            strokeWidth={stroke}
+            strokeDasharray={circumference + ' ' + circumference}
+            style={{ strokeDashoffset }}
+            strokeLinecap="round"
+            r={normalizedRadius}
+            cx={radius}
+            cy={radius}
+            className="text-primary transition-all duration-1000 ease-out"
+          />
+        </svg>
+        <span className="absolute text-sm font-bold text-foreground drop-shadow-sm">
+          {percent}%
+        </span>
+      </div>
+      <span className="text-sm text-center font-medium text-muted-foreground max-w-[120px] leading-tight group-hover:text-primary transition-colors">
+        {name}
+      </span>
+    </div>
+  );
+}
+
 function ExperienceOverlay({ item, onClose }: { item: typeof experience[0]; onClose: () => void }) {
   if (!item) return null;
   
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm animate-in fade-in duration-200" onClick={onClose}>
       <div 
-        className="glass-card max-w-2xl w-full p-8 relative neon-border animate-in zoom-in-95 duration-300"
+        className="glass-card max-w-xl w-full p-6 relative neon-border animate-in zoom-in-95 duration-300 max-h-[85vh] overflow-y-auto scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent"
         onClick={(e) => e.stopPropagation()}
       >
         <button 
@@ -298,14 +352,9 @@ function ExperienceOverlay({ item, onClose }: { item: typeof experience[0]; onCl
               <Code size={18} />
               Technical Skills & Methodologies
             </h4>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-.4 justify-center sm:justify-start">
               {item.skills.map((skill, idx) => (
-                <span 
-                  key={idx} 
-                  className="px-3 py-1 rounded-full text-xs font-medium bg-secondary/10 text-primary border border-primary/20"
-                >
-                  {skill}
-                </span>
+                <SkillCircle key={idx} skill={skill} />
               ))}
             </div>
           </div>
@@ -332,14 +381,12 @@ function PublicationOverlay({ item, onClose }: { item: Publication; onClose: () 
         </button>
 
         <div className="flex flex-col md:flex-row gap-8">
-           {/* Detailed Large Image */}
            <div className="w-full md:w-1/2 flex-shrink-0">
              <div className="aspect-video md:aspect-[4/3] w-full rounded-lg overflow-hidden bg-secondary/20 border border-primary/20 shadow-lg">
                 <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
              </div>
            </div>
 
-           {/* Content Details */}
            <div className="w-full md:w-1/2 flex flex-col justify-center">
               <div className="space-y-1 mb-4">
                 <span className="px-2.5 py-1 rounded text-xs font-semibold bg-primary/20 text-primary capitalize inline-block">
@@ -356,11 +403,7 @@ function PublicationOverlay({ item, onClose }: { item: Publication; onClose: () 
 
               <div className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed">
-                   {/* Placeholder for description since it wasn't in original data, 
-                       mocking it based on title for better UI visualization */}
-                   This research provides significant insights into {item.title.toLowerCase()}. 
-                   Published in a high-impact journal, it explores critical methodologies and offers 
-                   novel perspectives that contribute to the broader field of aquaculture and marine biology.
+                   {item.description}
                 </p>
                 
                 <div className="flex flex-wrap gap-4">

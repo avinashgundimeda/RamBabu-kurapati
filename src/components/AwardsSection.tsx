@@ -6,6 +6,8 @@ import seminar from '@/assets/images/TableImages/seminar.jpeg';
 import teamMembers from '@/assets/images/TableImages/team.jpeg';
 import reviewteam from '@/assets/images/TableImages/reviewteam.jpeg';
 import projectreview from '@/assets/images/TableImages/projectreview.jpeg';
+import firstAward from '@/assets/images/TableImages/firstAward.jpeg';
+import secondAward from '@/assets/images/TableImages/secondAward.jpg';
 
 
 interface AwardItem {
@@ -23,70 +25,38 @@ interface AwardItem {
 const awards: AwardItem[] = [
   {
     icon: Trophy,
-    title: 'Best Oral Presentation Award',
-    organization: 'World Aquaculture Society',
-    year: '2023',
-    description: 'Awarded for outstanding research presentation on novel AHPND diagnostics at the annual World Aquaculture conference.',
-    fullDetails: 'Presented groundbreaking research on a novel multiplex qPCR assay for simultaneous detection of multiple AHPND-causing Vibrio strains. The presentation covered the development, validation, and field application of the diagnostic tool across 15 commercial shrimp farms in Southeast Asia. The work demonstrated 98% sensitivity and 99% specificity compared to gold-standard methods.',
+    title: '3rd Place – Arkansas AI in Agriculture Hackathon, 2025',
+    organization: 'University of Arkansas, Fayetteville',
+    year: '2025',
+    description: 'Awarded for developing a Python-based data extraction and analysis pipeline for corn breeding lines, enabling efficient integration and interpretation of genetic line datasets.',
+    fullDetails: 'Secured 3rd place at the Arkansas AI in Agriculture Hackathon 2025 for designing and implementing a Python-based automated data extraction and analysis pipeline for large-scale corn breeding line datasets.The solution focused on collecting heterogeneous genetic and phenotypic data from multiple sources, cleaning and standardizing records, and building a structured pipeline to enable fast integration, filtering and comparative analysis of breeding lines. The workflow significantly reduced manual data handling and improved the reliability of downstream analysis for plant breeding research.',
     criteria: 'Selected from over 200 oral presentations based on scientific merit, presentation quality, and potential industry impact.',
     prize: 'Cash award of $2,000 and invitation to keynote at next year\'s regional conference.',
-    image: hackathon,
+    image: firstAward,
   },
   {
     icon: Medal,
-    title: 'Young Scientist Research Grant',
-    organization: 'International Society for Aquaculture Research',
-    year: '2022',
-    description: 'Competitive research grant supporting AI-based disease detection project in shrimp aquaculture.',
-    fullDetails: 'Three-year grant of $150,000 to develop and deploy computer vision systems for early disease detection in commercial shrimp farms. The project involves training deep learning models on over 50,000 annotated images and implementing edge computing solutions for real-time monitoring.',
-    criteria: 'Awarded to researchers under 35 with demonstrated innovation potential. Selection rate: 8% of applicants.',
-    prize: 'Research funding plus mentorship from senior scientists and industry partners.',
-    image: seminar,
+    title: '2nd Place – Professional Agriculture Workers conference, 2025',
+    organization: '83rd Annual Professional Agricultural Workers Conference (PAWC), Tuskegee University - Renaissance Montgomery Hotel & Spa, Montgomery, Alabama, USA ',
+    year: 'Nov-2025',
+    description: 'Received 2nd place in the GSD Student Graduate Oral Presentation Competition for presenting my research titled “Optimizing Artemia Life Stage Utilization for Improved Performance of Litopenaeus vannamei Post-Larvae.',
+    fullDetails: 'Received 2nd Place in the GSD Student Graduate Oral Presentation Competition at the Professional Agriculture Workers Conference 2025 for presenting my research titled “Optimizing Artemia Life Stage Utilization for Improved Performance of Litopenaeus vannamei Post-Larvae.”The presentation focused on evaluating the effectiveness of different Artemia life stages as live feed and their impact on the growth, survival and overall performance of Litopenaeus vannamei post-larvae. The study emphasized optimizing feeding strategies to improve nutrient utilization, larval quality and hatchery production efficiency.The research demonstrated how appropriate selection and timing of Artemia life stage usage can enhance early shrimp development, reduce feed-related losses and support more consistent post-larval performance in commercial aquaculture systems.',
+    criteria: 'Clarity of presentation, Data interpretation and Q&A performance',
+    prize: '🥈 Second-place certificate and official recognition at the conference.',
+    image: secondAward,
   },
   {
     icon: Star,
-    title: 'Excellence in Graduate Research',
-    organization: 'University of Aquatic Sciences',
-    year: '2018',
-    description: 'University-wide recognition for exceptional doctoral dissertation on AHPND molecular pathogenesis.',
-    fullDetails: 'Dissertation titled "Molecular Mechanisms of AHPND Pathogenesis: From Toxin Expression to Host Response" was recognized as the top doctoral thesis across all science departments. The work identified novel virulence factors and characterized the host immune response timeline during infection.',
-    criteria: 'Annual award given to the most impactful doctoral dissertation based on publication record, citations, and external examiner reviews.',
-    prize: 'Gold medal, certificate of distinction, and $5,000 research continuation grant.',
-    image: teamMembers,
+    title: '',
+    organization: '',
+    year: '',
+    description: '',
+    fullDetails: '',
+    criteria: '',
+    prize: '',
+    image: null,
   },
-  {
-    icon: Award,
-    title: 'Innovation in Aquaculture Award',
-    organization: 'National Fisheries Association',
-    year: '2021',
-    description: 'Recognition for developing novel probiotic formulations with demonstrated efficacy in commercial settings.',
-    fullDetails: 'Developed a multi-strain probiotic formulation that reduced AHPND mortality by 35% in controlled challenge trials and 28% in commercial farm applications. The formulation has been licensed to two feed companies and is currently used in over 500 hectares of shrimp farms.',
-    criteria: 'Industry-nominated award for research with demonstrated commercial application and measurable economic impact.',
-    prize: 'Plaque, industry partnership opportunities, and $10,000 innovation fund.',
-    image: reviewteam,
-  },
-  {
-    icon: Trophy,
-    title: 'Best Poster Presentation',
-    organization: 'Asian-Pacific Aquaculture Conference',
-    year: '2020',
-    description: 'First place poster award for microbiome profiling research in disease-resistant shrimp strains.',
-    fullDetails: 'Poster presented 16S rRNA and shotgun metagenomic analysis of gut microbiomes from disease-resistant and susceptible shrimp strains. Identified 12 bacterial genera significantly enriched in resistant animals, forming the basis for next-generation probiotic development.',
-    criteria: 'Evaluated on visual design, scientific content, and presenter interaction by a panel of 5 judges.',
-    prize: 'Certificate and travel grant for next year\'s conference.',
-    image: projectreview,
-  },
-  {
-    icon: Medal,
-    title: 'Early Career Researcher Fellowship',
-    organization: 'Marine Biology Foundation',
-    year: '2019',
-    description: 'Prestigious fellowship supporting international research collaboration on antimicrobial development.',
-    fullDetails: 'One-year fellowship enabling a research visit to the Institute of Marine Biotechnology in Germany. Focused on bacteriophage isolation and endolysin characterization for aquaculture applications. Resulted in 3 co-authored publications and ongoing international collaboration.',
-    criteria: 'Competitive fellowship for early-career researchers (within 3 years of PhD) with strong publication records.',
-    prize: 'Living stipend, research budget of €30,000, and travel support.',
-    image: hackathon,
-  },
+ 
 ];
 
 export function AwardsSection() {

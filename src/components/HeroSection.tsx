@@ -83,7 +83,7 @@ export function HeroSection() {
             </div>
 
             <p className="text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              Driving data-driven shrimp health and nutrition research using advanced laboratory and AI techniques
+              A translational aquatic disease scientist combining histopathology, microbiology, molecular diagnostics, and AI-driven analytics in nutrition and pathogen-challenge models.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.4s' }}>

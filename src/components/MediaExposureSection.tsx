@@ -6,47 +6,53 @@ import seminar from '@/assets/images/TableImages/seminar.jpeg';
 import teamMembers from '@/assets/images/TableImages/team.jpeg';
 import reviewteam from '@/assets/images/TableImages/reviewteam.jpeg';
 import projectreview from '@/assets/images/TableImages/projectreview.jpeg';
+import first from '@/assets/images/MediaImages/1st.jpeg';
+import second from '@/assets/images/MediaImages/2nd.jpeg';
+import third from '@/assets/images/MediaImages/3rd.jpeg';
+import fourth from '@/assets/images/MediaImages/4th.jpeg';
+import fifth from '@/assets/images/MediaImages/5th.jpeg';
+
 
 
 const mediaExposure = [
   {
     title: 'UAPB Studying Sustainable Aqua-based Live Food Strategies for the Poultry Industry',
     link: 'https://uapbnews.wordpress.com/2025/03/26/uapb-studying-sustainable-aqua-based-live-food-strategies-for-poultry-industry/',
-    photo: hackathon,
-    details: 'Featured in Global Aquaculture Advocate',
-    description: 'An in-depth interview discussing the recent breakthrough in rapid diagnostic tools for shrimp aquaculture. This article highlights the potential impact on reducing disease outbreaks and improving yield stability for farmers across Southeast Asia.',
+    photo: first,
+    details: 'Cultivating Artemia for sustainable poultry diets',
+    description: 'The University of Arkansas at Pine Bluff (UAPB) is conducting research into using Artemia franciscana (brine shrimp) as a sustainable, high-protein live ingredient for both aquaculture and poultry feeds. Traditionally essential in aquaculture as a digestible live feed rich in protein, essential amino acids and fatty acids, brine shrimp are being evaluated for broader application in poultry nutrition to support growth and egg production while promoting sustainability. As part of this initiative led by Dr. Yathish Ramena and his team at the School of Agriculture, Fisheries and Human Sciences, UAPB is establishing Artemia biomass culture systems to ensure continuous supply and exploring their integration into poultry diets. The project aligns with UAPB’s goals of advancing agricultural feed strategies, offering cost-effective and innovative nutrition solutions, and providing hands-on research opportunities for students',
     date: 'March 26th 2025'
   },
   {
-    title: 'Interview: The Future of AI in Farming',
-    link: '#',
-    photo: seminar,
-    details: 'Podcast episode with AquaTech Weekly',
-    description: 'A 45-minute podcast conversation exploring the role of Artificial Intelligence in modern aquaculture. Topics include predictive analytics for water quality, automated feeding systems, and the future of autonomous farming operations.',
-    date: 'April 05, 2024'
+    title: 'UAPB Partners with Infini-SEA to Advance Research in Shrimp, Marine Species',
+    link: 'https://uapbnews.wordpress.com/2025/07/16/uapb-partners-with-infini-sea-to-advance-research-in-shrimp-marine-species/',
+    photo: second,
+    details: 'UAPB and Infini-SEA collaborate on sustainable shrimp research',
+    description: 'The University of Arkansas at Pine Bluff (UAPB) has entered a research partnership with Infini-SEA LLC, a U.S. shrimp breeding company, to advance studies in shrimp and other marine species. The collaboration focuses on exploring bioactive compounds, alternative feed ingredients, genetic research and artificial intelligence (AI) integration to promote sustainability and productivity in shrimp aquaculture. Infini-SEA brings expertise in producing specific pathogen-free (Penaeus vannamei) broodstock and applying advanced genomic selection techniques to improve growth, disease resistance and performance. Through this initiative, UAPB researchers and students will gain hands-on experience with selective breeding program management, phenotypic data analysis and AI-enabled monitoring, aiming to support more efficient, resilient and sustainable shrimp production methods with potential global industry impact.',
+    date: 'July 16th 2025'
   },
   {
-    title: 'Top 30 Under 30 in Marine Science',
-    link: '#',
-    photo: teamMembers,
-    details: 'Recognized for impactful contributions',
-    description: 'Selected as one of the "Top 30 Under 30" in the field of Marine Science. This recognition celebrates young researchers who have made significant contributions to sustainability and innovation in the blue economy.',
-    date: 'January 20, 2024'
+    title: 'Arkansans Gain New Insights at Agriculture Farm Field Day in Lonoke.',
+    link: 'https://uapbnews.wordpress.com/2025/10/01/arkansans-gain-new-insights-at-agriculture-farm-field-day-in-lonoke/',
+    photo: third,
+    details: 'UAPB student excels in AI agriculture innovation.',
+    description: 'A graduate student from the University of Arkansas at Pine Bluff (UAPB) was recognized as one of the top winners at the AI in Agriculture Hackathon, highlighting the university’s strength in combining agricultural science with cutting-edge technology. The competition challenged participants to create innovative solutions using artificial intelligence to solve real-world agricultural problems, such as data analysis, predictive modeling and automation. The UAPB student’s project demonstrated strong technical skill and practical application, earning distinction among peers from other institutions. This achievement underscores UAPB’s commitment to hands-on student research, AI integration in agriculture, and preparing graduates for emerging careers at the intersection of technology and farming. In addition, the hackathon experience provided the student with hands-on exposure to real agricultural datasets, collaborative problem-solving with multidisciplinary teams and mentorship from industry and academic experts. The project emphasized scalable AI pipelines, data preprocessing, and model evaluation techniques suitable for real farm and research environments. This recognition also strengthens UAPB’s visibility in national-level AI-driven agriculture initiatives and encourages more students to engage in applied, technology-focused agricultural research.',
+    date: 'October 1st 2025'
   },
   {
-    title: 'Top 30 Under 30 in Marine Science',
-    link: '#',
-    photo: reviewteam,
-    details: 'Recognized for impactful contributions',
-    description: 'Selected as one of the "Top 30 Under 30" in the field of Marine Science. This recognition celebrates young researchers who have made significant contributions to sustainability and innovation in the blue economy.',
-    date: 'January 20, 2024'
+    title: 'UAPB Graduate Student Among Top Winners at AI in Agriculture Hackathon',
+    link: 'https://uapbnews.wordpress.com/2025/10/22/uapb-graduate-student-among-top-winners-at-ai-in-agriculture-hackathon/',
+    photo: fourth,
+    details: 'UAPB student excels in agricultural AI competition.',
+    description: 'A graduate student from the University of Arkansas at Pine Bluff (UAPB) was named among the top winners at the AI in Agriculture Hackathon 2025, showcasing UAPB’s commitment to integrating artificial intelligence with agricultural research and innovation. The student’s project focused on developing AI-driven analytical tools to address real-world agricultural challenges such as predictive modeling, data interpretation and decision support systems. Through intensive collaboration with peers, the student demonstrated strong technical proficiency in Python programming, machine learning techniques and scalable data processing workflows applicable to farm-level problems and research datasets. The achievement highlights the university’s efforts to prepare students for emerging careers at the intersection of AI and agriculture while strengthening UAPB’s presence in national technology-driven agricultural initiatives. Attendees and judges commended the project for its practical impact, interdisciplinary approach and potential for future field applications, reinforcing the role of AI as a transformative force in modern agriculture.',
+    date: 'October 22, 2025'
   },
   {
-    title: 'Breakthrough in Shrimp Diagnostics',
-    link: '#',
-    photo: projectreview,
-    details: 'Featured in Global Aquaculture Advocate',
-    description: 'An in-depth interview discussing the recent breakthrough in rapid diagnostic tools for shrimp aquaculture. This article highlights the potential impact on reducing disease outbreaks and improving yield stability for farmers across Southeast Asia.',
+    title: 'UA team places 3rd in AI Ag Hackathon',
+    link: 'https://pressreader.com/article/282054808269576',
+    photo: fifth,
+    details: 'UA team excels in agricultural AI hackathon.',
+    description: 'The University of Arkansas (UA) team earned 3rd place in the AI in Agriculture Hackathon 2025, a competitive event where student teams developed artificial intelligence-based solutions to real problems in the agriculture sector. Participants were tasked with using machine learning, data analysis and innovative coding to create tools that could improve efficiency, productivity or sustainability for farmers and agribusinesses. The UA team’s project demonstrated strong technical ability, creative problem solving and practical application of AI to farm-related datasets, earning recognition from judges and peers alike. This achievement highlights UA’s emphasis on technology-driven agricultural education, preparing students for careers that bridge computing and agriscience and strengthening the university’s presence in national innovation challenges.',
     date: 'June 12, 2024'
   },
 ];

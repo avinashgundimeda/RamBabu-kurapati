@@ -30,7 +30,8 @@ const contactLinks = [
     icon: FileText,
     label: 'Download CV',
     value: 'Curriculum Vitae (PDF)',
-    href: '#',
+    href: '/resume.pdf',
+    download: true,
   },
 ];
 
@@ -66,6 +67,7 @@ export function ContactSection() {
                     href={link.href}
                     target={link.href.startsWith('http') ? '_blank' : undefined}
                     rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    download={link.download}
                     className="contact-link"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
