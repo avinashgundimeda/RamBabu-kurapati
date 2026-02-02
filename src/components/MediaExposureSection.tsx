@@ -10,12 +10,12 @@ import projectreview from '@/assets/images/TableImages/projectreview.jpeg';
 
 const mediaExposure = [
   {
-    title: 'Breakthrough in Shrimp Diagnostics',
-    link: '#',
+    title: 'UAPB Studying Sustainable Aqua-based Live Food Strategies for the Poultry Industry',
+    link: 'https://uapbnews.wordpress.com/2025/03/26/uapb-studying-sustainable-aqua-based-live-food-strategies-for-poultry-industry/',
     photo: hackathon,
     details: 'Featured in Global Aquaculture Advocate',
     description: 'An in-depth interview discussing the recent breakthrough in rapid diagnostic tools for shrimp aquaculture. This article highlights the potential impact on reducing disease outbreaks and improving yield stability for farmers across Southeast Asia.',
-    date: 'June 12, 2024'
+    date: 'March 26th 2025'
   },
   {
     title: 'Interview: The Future of AI in Farming',
