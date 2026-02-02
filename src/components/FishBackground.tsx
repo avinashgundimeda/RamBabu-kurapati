@@ -87,15 +87,15 @@ export function FishBackground() {
            this.speedY = (Math.random() * 0.5 + 0.2) * -1;
         } else if (type === 'oyster') {
            // Oysters largely static, maybe very slow drift
-           this.x = Math.random() * width;
-           this.baseY = Math.random() * height;
-           this.speedX = (Math.random() * 0.1 - 0.05); 
-           this.speedY = (Math.random() * 0.1 - 0.05);
+          //  this.x = Math.random() * width;
+          //  this.baseY = Math.random() * height;
+          //  this.speedX = (Math.random() * 0.1 - 0.05); 
+          //  this.speedY = (Math.random() * 0.1 - 0.05);
         } else {
            // Shrimp (default swimmer)
            this.x = Math.random() * width;
            this.baseY = Math.random() * height;
-           this.speedX = (Math.random() * 1.5 + 0.8) * this.direction;
+           this.speedX = (Math.random() * 0.02 + 0.01) * this.direction;
            this.speedY = 0;
         }
         

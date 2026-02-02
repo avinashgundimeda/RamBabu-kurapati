@@ -12,17 +12,24 @@ const experience = [
   {
     title: 'Graduate Research Assistant – UAPB',
     organization: 'Driving data-driven shrimp health and nutrition research using advanced laboratory and AI techniques.',
-    period: '2025 - Present',
+    period: 'August 2024 - Present',
     description: 'Conduct shrimp nutrition and disease-challenge trials focusing on larval development, immune responses, and survival outcomes.Lead Artemia life-stage optimization studies for Litopenaeus vannamei , resulting in improved post-larval performance.',
 
     details: [
-      'Investigate AHPND disease progression using histopathology and gene-expression analysis to track organ-specific infection pathways.',
-        'Perform histological processing and staining (H&E, PAS), microbial culture, pathogen isolation, and antimicrobial testing.',
-        'Apply molecular techniques including DNA/RNA extraction, PCR/qPCR, and gel electrophoresis.',
-        'Analyze datasets using R and SAS 9.4; develop Python-based CNN and YOLO workflows for automated image processing.',
-        'Process microbiome datasets using 16S rRNA sequencing and bioinformatics pipelines.',
-        'Maintain SOP-compliant laboratory documentation, biosafety procedures, and inventory systems.',
-        'Present research findings at conferences and contribute to peer-reviewed manuscripts.'
+      'Conduct shrimp nutrition and disease-challenge trials.',
+      'Conduct histology (H&E), microbial culture, antimicrobial assays, DNA/RNA extraction, PCR/qPCR, gel electrophoresis, 16S rRNA gut microbiome analysis, water quality monitoring, biological sampling, growth performance analysis, and post-larval health assessments.',
+      'Analyze datasets in R and SAS; develop Python CNN/YOLO workflows.',
+      'Present research findings at scientific conferences, seminars, and departmental symposia.',
+      'Contribute to manuscript preparation, data interpretation, and publication in peer-reviewed journals.'
+
+    ],
+    skills: [
+      'Shrimp Nutrition & Disease Trials	98%',
+      'Histology	90%',
+      'Microbiology & Molecular Diagnostics	82%',
+      'AI-driven computer-vision pipelines	65%',
+      'Statistical Analysis  (R, SAS 9.4, and Excel)	60%',
+      'Professional competency – No changes needed'
     ]
   },
   // {
@@ -200,12 +207,13 @@ export function ProfessionalSummarySection() {
                   <div className="pl-4">
                     <div className="flex flex-wrap justify-between items-start gap-2 mb-2">
                       <h4 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">{item.title}</h4>
-                      <span className="text-sm text-primary font-medium">{item.period}</span>
+                      <span className="text-lg text-primary font-medium">{item.period}</span>
                     </div>
                     <p className="text-muted-foreground mb-2">{item.organization}</p>
                       {/* <p className="text-sm text-muted-foreground ">{item.description}</p> */}
                       <p className="text-sm text-muted-foreground ">{item.description}</p>
-                    <div className="mt-4 flex items-center text-xs text-primary group-hover:opacity-100 transition-opacity transform translate-y-2">
+                        {/* <p className='text-sm text-muted-foreground '>{item.skills.join(', ')}</p> */}
+                    <div className="mt-3 flex items-center text-xs text-primary group-hover:opacity-100 transition-opacity transform translate-y-2">
                       <span>Click for details</span>
                       <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -265,7 +273,7 @@ function ExperienceOverlay({ item, onClose }: { item: typeof experience[0]; onCl
             <span className="text-muted-foreground">{item.period}</span>
           </div>
           <p className="text-base text-muted-foreground/90 leading-relaxed italic border-l-2 border-primary/50 pl-4">
-            Conduct shrimp nutrition and disease-challenge trials focusing on larval development, immune responses, and survival outcomes.Lead Artemia life-stage optimization studies for Litopenaeus vannamei , resulting in improved post-larval performance.'
+            {item.description}
           </p>
         </div>
 
@@ -283,6 +291,25 @@ function ExperienceOverlay({ item, onClose }: { item: typeof experience[0]; onCl
             ))}
           </ul>
         </div>
+
+        {item.skills && (
+          <div className="mt-6 space-y-4">
+            <h4 className="text-lg font-semibold text-primary flex items-center gap-2">
+              <Code size={18} />
+              Technical Skills & Methodologies
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {item.skills.map((skill, idx) => (
+                <span 
+                  key={idx} 
+                  className="px-3 py-1 rounded-full text-xs font-medium bg-secondary/10 text-primary border border-primary/20"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

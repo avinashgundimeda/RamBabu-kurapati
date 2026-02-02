@@ -72,7 +72,7 @@ export function HeroSection() {
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               Hi, I'm{' '}
-              <span className="neon-text">Ram Kurapti</span>
+              <span className="neon-text">Ram Kurapati</span>
             </h1>
 
             <div className="h-16 sm:h-20 flex items-center justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
@@ -83,8 +83,7 @@ export function HeroSection() {
             </div>
 
             <p className="text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              Pioneering sustainable aquaculture solutions through cutting-edge research 
-              in disease management, molecular biology, and AI-driven diagnostics.
+              Driving data-driven shrimp health and nutrition research using advanced laboratory and AI techniques
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
