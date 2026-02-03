@@ -3,8 +3,10 @@ import shrimpImgSrc from '../assets/images/Lshrimp.png';
 import crabImgSrc from '../assets/images/crabb.png';
 import jellyImgSrc from '../assets/images/jelly.png';
 import oysterImgSrc from '../assets/images/oyesters.png';
+import fishImgSrc from '../assets/images/fishbuleshade.png';
 
-type CreatureType = 'shrimp' | 'crab' | 'jelly' | 'oyster';
+
+type CreatureType = 'shrimp' | 'crab' | 'jelly' | 'oyster' | 'fish';
 
 interface CreatureConfig {
   type: CreatureType;
@@ -14,10 +16,12 @@ interface CreatureConfig {
 }
 
 const CREATURES: CreatureConfig[] = [
+  { type: 'fish', src: fishImgSrc, count: 1, baseSize: 100 },
   { type: 'shrimp', src: shrimpImgSrc, count: 3, baseSize: 100 },
   { type: 'crab', src: crabImgSrc, count: 2, baseSize: 80 },
   { type: 'jelly', src: jellyImgSrc, count: 3, baseSize: 90 },
   { type: 'oyster', src: oysterImgSrc, count: 3, baseSize: 70 },
+  { type: 'fish', src: fishImgSrc, count: 4, baseSize: 90 },
 ];
 
 export function FishBackground() {
@@ -91,6 +95,11 @@ export function FishBackground() {
           //  this.baseY = Math.random() * height;
           //  this.speedX = (Math.random() * 0.1 - 0.05); 
           //  this.speedY = (Math.random() * 0.1 - 0.05);
+        } else if (type === 'fish') {
+           this.x = Math.random() * width;
+           this.baseY = Math.random() * height;
+           this.speedX = (Math.random() * 0.1 + 0.05) * this.direction; 
+           this.speedY = 10;
         } else {
            // Shrimp (default swimmer)
            this.x = Math.random() * width;
@@ -122,15 +131,17 @@ export function FishBackground() {
              this.y += this.speedY; // Moving up
              this.x += Math.sin(this.phase) * 0.5; // Slight side wobble
              
-             // Wrap vertical specific for jelly
-             if (this.y < -100) this.y = height + 100;
-             return; 
+
         }
         else if (this.type === 'oyster') {
              // Drift very slowly
              this.x += this.speedX;
              this.baseY += this.speedY;
              this.y = this.baseY - scrollY * 0.2;
+        }
+        else if (this.type === 'fish') {
+             this.x += this.speedX;
+             this.y = this.baseY + Math.sin(this.phase * 2) * 15 - scrollY * 0.2;
         }
 
         // --- WRAP AROUND ---
