@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
-import shrimpImgSrc from '../assets/images/Lshrimp.png';
-import crabImgSrc from '../assets/images/crabb.png';
+// import shrimpImgSrc from '../assets/images/Lshrimp.png';
+// import crabImgSrc from '../assets/images/crabb.png';
 import jellyImgSrc from '../assets/images/jelly.png';
-import oysterImgSrc from '../assets/images/oyesters.png';
-import fishImgSrc from '../assets/images/fishbuleshade.png';
+// import oysterImgSrc from '../assets/images/oyesters.png';
+import fishImgSrc from '../assets/images/smallfish.png';
 
 
 type CreatureType = 'shrimp' | 'crab' | 'jelly' | 'oyster' | 'fish';
@@ -17,10 +17,10 @@ interface CreatureConfig {
 
 const CREATURES: CreatureConfig[] = [
   { type: 'fish', src: fishImgSrc, count: 1, baseSize: 100 },
-  { type: 'shrimp', src: shrimpImgSrc, count: 3, baseSize: 100 },
-  { type: 'crab', src: crabImgSrc, count: 2, baseSize: 80 },
+  // { type: 'shrimp', src: shrimpImgSrc, count: 3, baseSize: 100 },
+  // { type: 'crab', src: crabImgSrc, count: 2, baseSize: 80 },
   { type: 'jelly', src: jellyImgSrc, count: 3, baseSize: 90 },
-  { type: 'oyster', src: oysterImgSrc, count: 3, baseSize: 70 },
+  // { type: 'oyster', src: oysterImgSrc, count: 3, baseSize: 70 },
   { type: 'fish', src: fishImgSrc, count: 4, baseSize: 90 },
 ];
 
@@ -91,10 +91,10 @@ export function FishBackground() {
            this.speedY = (Math.random() * 0.5 + 0.2) * -1;
         } else if (type === 'oyster') {
            // Oysters largely static, maybe very slow drift
-          //  this.x = Math.random() * width;
-          //  this.baseY = Math.random() * height;
-          //  this.speedX = (Math.random() * 0.1 - 0.05); 
-          //  this.speedY = (Math.random() * 0.1 - 0.05);
+           this.x = Math.random() * width;
+           this.baseY = Math.random() * height;
+           this.speedX = (Math.random() * 0.1 - 0.05); 
+           this.speedY = (Math.random() * 0.1 - 0.05);
         } else if (type === 'fish') {
            this.x = Math.random() * width;
            this.baseY = Math.random() * height;

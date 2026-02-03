@@ -5,6 +5,8 @@ import fishIcon from '@/assets/images/fish.svg';
 import virusIcon from '@/assets/images/virus.svg';
 import crabIcon from '@/assets/images/crab.svg';
 
+import resume from '@/assets/images/pdf/Ram_Kurapati_Resume.docx?url';
+
 const roles = [
   'M.S. Aquaculture',
   'Graduate Research Assistant',
@@ -94,11 +96,12 @@ export function HeroSection() {
                 Explore My Work
               </button>
               <a
-                href="#contact"
+                href={resume}
+                download="Ram_Kurapati_Resume.docx"
                 className="px-8 py-3 rounded-lg border border-muted-foreground/30 text-foreground font-semibold
                   hover:border-primary hover:text-primary transition-all duration-300"
               >
-                Get In Touch
+                Download Resume
               </a>
             </div>
           </div>

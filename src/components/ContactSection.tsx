@@ -1,15 +1,18 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { Mail, Linkedin, BookOpen, User, FileText, MapPin, Send } from 'lucide-react';
+import { BookOpen, User, FileText, MapPin, Send } from 'lucide-react';
+import { LinkedInLogo, GmailLogo } from '@/components/Logos';
+
+import resume from '@/assets/images/pdf/Ram_Kurapati_Resume.docx?url';
 
 const contactLinks = [
   {
-    icon: Mail,
+    icon: GmailLogo,
     label: 'Email',
     value: 'kurapatirambabu5@gmail.com',
     href: 'mailto:researcher@university.edu',
   },
   {
-    icon: Linkedin,
+    icon: LinkedInLogo,
     label: 'LinkedIn',
     value: 'linkedin.com/in/ram-kurapati-uapb',
     href: 'https://www.linkedin.com/in/ram-kurapati-uapb/',
@@ -29,8 +32,8 @@ const contactLinks = [
   {
     icon: FileText,
     label: 'Download CV',
-    value: 'Curriculum Vitae (PDF)',
-    href: '/resume.pdf',
+    value: 'Curriculum Vitae (DOCX)',
+    href: resume,
     download: true,
   },
 ];

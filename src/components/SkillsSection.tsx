@@ -13,12 +13,11 @@ import {
 } from 'lucide-react';
 
 const technicalSkills = [
-  { name: 'Molecular Biology (PCR/qPCR)', percentage: 95, icon: Dna },
-  { name: 'Microbiology & Culture', percentage: 90, icon: Microscope },
-  { name: 'Bioinformatics & Data Analysis', percentage: 85, icon: Database },
-  { name: 'Python & R Programming', percentage: 80, icon: Code },
-  { name: 'Machine Learning / AI', percentage: 75, icon: Cpu },
-  { name: 'Histopathology', percentage: 88, icon: Activity },
+  { name: 'Shrimp Nutrition & Disease Trials', percentage: 98, icon: Activity },
+  { name: 'Histology', percentage: 90, icon: Microscope },
+  { name: 'Microbiology & Molecular Diagnostics', percentage: 82, icon: Dna },
+  { name: 'AI-driven computer-vision pipelines', percentage: 65, icon: Cpu },
+  { name: 'Statistical Analysis (R, SAS 9.4, Excel)', percentage: 60, icon: Database },
 ];
 
 const professionalSkills = [

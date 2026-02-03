@@ -112,12 +112,12 @@ export function ProjectsSection() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-12">
           {projects.map((project, index) => (
             <div
               key={project.title}
               onClick={() => setSelectedProject(project)}
-              className={`project-card glass-card p-6 flex flex-col h-full transition-all duration-1000 cursor-pointer group ${
+              className={`project-card glass-card p-8 flex flex-col transition-all duration-1000 cursor-pointer group ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-10'
@@ -128,11 +128,11 @@ export function ProjectsSection() {
                 <project.icon className="w-7 h-7 text-primary" />
               </div>
 
-              <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
+              <h3 className="text-2xl font-bold text-foreground mb-4">
                 {project.title}
               </h3>
 
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {project.tools.map((tool) => (
                   <span
                     key={tool}
@@ -143,12 +143,12 @@ export function ProjectsSection() {
                 ))}
               </div>
 
-              <p className="text-muted-foreground text-sm mb-4 flex-1 line-clamp-3">
+              <p className="text-muted-foreground text-base mb-6 flex-1">
                 {project.description}
               </p>
 
-              <div className="mt-auto pt-4 border-t border-border/50">
-                <p className="text-sm line-clamp-2">
+              <div className="mt-auto pt-6 border-t border-border/50">
+                <p className="text-base">
                   <span className="text-primary font-semibold">Impact: </span>
                   <span className="text-muted-foreground">
                     {project.impact}

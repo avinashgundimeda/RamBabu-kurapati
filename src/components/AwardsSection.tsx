@@ -27,7 +27,7 @@ const awards: AwardItem[] = [
     icon: Trophy,
     title: '3rd Place – Arkansas AI in Agriculture Hackathon, 2025',
     organization: 'University of Arkansas, Fayetteville',
-    year: '2025',
+    year: 'September 13–14, 2025',
     description: 'Awarded for developing a Python-based data extraction and analysis pipeline for corn breeding lines, enabling efficient integration and interpretation of genetic line datasets.',
     fullDetails: 'Secured 3rd place at the Arkansas AI in Agriculture Hackathon 2025 for designing and implementing a Python-based automated data extraction and analysis pipeline for large-scale corn breeding line datasets.The solution focused on collecting heterogeneous genetic and phenotypic data from multiple sources, cleaning and standardizing records, and building a structured pipeline to enable fast integration, filtering and comparative analysis of breeding lines. The workflow significantly reduced manual data handling and improved the reliability of downstream analysis for plant breeding research.',
     criteria: 'Selected from over 200 oral presentations based on scientific merit, presentation quality, and potential industry impact.',
@@ -38,25 +38,13 @@ const awards: AwardItem[] = [
     icon: Medal,
     title: '2nd Place – Professional Agriculture Workers conference, 2025',
     organization: '83rd Annual Professional Agricultural Workers Conference (PAWC), Tuskegee University - Renaissance Montgomery Hotel & Spa, Montgomery, Alabama, USA ',
-    year: 'Nov-2025',
+    year: 'November 16–18, 2025',
     description: 'Received 2nd place in the GSD Student Graduate Oral Presentation Competition for presenting my research titled “Optimizing Artemia Life Stage Utilization for Improved Performance of Litopenaeus vannamei Post-Larvae.',
     fullDetails: 'Received 2nd Place in the GSD Student Graduate Oral Presentation Competition at the Professional Agriculture Workers Conference 2025 for presenting my research titled “Optimizing Artemia Life Stage Utilization for Improved Performance of Litopenaeus vannamei Post-Larvae.”The presentation focused on evaluating the effectiveness of different Artemia life stages as live feed and their impact on the growth, survival and overall performance of Litopenaeus vannamei post-larvae. The study emphasized optimizing feeding strategies to improve nutrient utilization, larval quality and hatchery production efficiency.The research demonstrated how appropriate selection and timing of Artemia life stage usage can enhance early shrimp development, reduce feed-related losses and support more consistent post-larval performance in commercial aquaculture systems.',
     criteria: 'Clarity of presentation, Data interpretation and Q&A performance',
     prize: '🥈 Second-place certificate and official recognition at the conference.',
     image: secondAward,
   },
-  {
-    icon: Star,
-    title: '',
-    organization: '',
-    year: '',
-    description: '',
-    fullDetails: '',
-    criteria: '',
-    prize: '',
-    image: null,
-  },
- 
 ];
 
 export function AwardsSection() {
@@ -81,7 +69,7 @@ export function AwardsSection() {
                     <th className="px-4 py-3">S.No</th>
                     <th className="px-4 py-3">Award Title</th>
                     <th className="px-4 py-3">Organization</th>
-                    <th className="px-4 py-3">Year</th>
+                    <th className="px-4 py-3">Date</th>
                     <th className="px-4 py-3">Image</th>
                   </tr>
                 </thead>
