@@ -1,17 +1,11 @@
-import { useState } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { FlaskConical, Dna, Bot, Microscope, Leaf, TestTube } from 'lucide-react';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from '@/components/ui/dialog';
+import { FlaskConical, Dna, Bot, Leaf, Fish } from 'lucide-react';
+import shrimp from '@/assets/images/SkillsImages/shrimp.png'
+
 
 const projects = [
   {
-  icon: FlaskConical,
+  icon: shrimp,
   title: 'Optimizing Artemia Life-Stage Utilization and AI-Driven Phenotyping to Improve Performance and Health of Litopenaeus vannamei Post-Larvae',
   tools: ['Precision Nutrition', 'Disease Resilience', 'AI Monitoring'],
   description:
@@ -28,7 +22,7 @@ const projects = [
   funding: 'Industry-funded – Great Salt Lake Artemia (GSLA)',
   },
   {
-    icon: Bot,
+    icon: shrimp,
     title: 'Organ-to-Organ Progression of Acute Hepatopancreatic Necrosis Disease (AHPND) in Litopenaeus vannamei Using Time-Resolved Molecular Diagnostics',
     tools: ['Pathogenesis Mapping', 'qPCR Surveillance', 'Disease Dynamics'],
     description:
@@ -41,7 +35,7 @@ const projects = [
     funding: 'Institutional and research-grant supported (UAPB Aquaculture Program)',
   },
  {
-  icon: Leaf,
+  icon: Fish,
   title: 'Sustainable Feeding Strategies for Juvenile Largemouth Bass: Effects of Spirulina, Yeast, and Probiotics on Growth and Intestinal Health',
   tools: ['Functional Feeds', 'Gut Health', 'Sustainable Aquaculture'],
   description:
@@ -80,7 +74,7 @@ const projects = [
 ];
 
 interface ProjectType {
-  icon: typeof FlaskConical;
+  icon: any;
   title: string;
   tools: string[];
   description: string;
@@ -94,7 +88,6 @@ interface ProjectType {
 
 export function ProjectsSection() {
   const { ref, isVisible } = useScrollReveal();
-  const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
 
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
@@ -112,162 +105,84 @@ export function ProjectsSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-12">
+        <div className="grid grid-cols-1 gap-12 mt-12">
           {projects.map((project, index) => (
             <div
               key={project.title}
-              onClick={() => setSelectedProject(project)}
-              className={`project-card glass-card p-8 flex flex-col transition-all duration-1000 cursor-pointer group ${
+              className={`glass-card p-8 flex flex-col transition-all duration-1000 group ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${200 + index * 100}ms` }}
             >
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-4 neon-border">
-                <project.icon className="w-7 h-7 text-primary" />
+              <div className="flex flex-col md:flex-row md:items-start gap-6">
+                 <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center neon-border flex-shrink-0">
+                    {typeof project.icon === 'string' ? (
+                      <img src={project.icon} alt={project.title} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <project.icon className="w-8 h-8 text-primary" />
+                    )}
+                  </div>
+                  
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-foreground mb-4">
+                        {project.title}
+                    </h3>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tools.map((tool) => (
+                        <span
+                            key={tool}
+                            className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/30"
+                        >
+                            {tool}
+                        </span>
+                        ))}
+                    </div>
+
+                    <p className="text-muted-foreground text-lg mb-6">
+                        {project.description}
+                    </p>
+
+                     <div className="grid md:grid-cols-2 gap-4 mb-6">
+                        <div className="p-4 rounded-lg bg-primary/5 border border-primary/10">
+                            <h4 className="text-sm font-semibold text-primary mb-1">Duration</h4>
+                            <p className="text-sm text-foreground/80">{project.duration}</p>
+                        </div>
+                        <div className="p-4 rounded-lg bg-primary/5 border border-primary/10">
+                            <h4 className="text-sm font-semibold text-primary mb-1">Funding</h4>
+                            <p className="text-sm text-foreground/80">{project.funding}</p>
+                        </div>
+                     </div>
+
+                    <div className="space-y-4">
+                        <div className="p-4 rounded-lg bg-secondary/5 border border-secondary/10">
+                            <h4 className="font-semibold text-secondary mb-2">Impact</h4>
+                            <p className="text-muted-foreground">{project.impact}</p>
+                        </div>
+
+                         <div>
+                            <h4 className="font-semibold text-foreground mb-2">Methodology</h4>
+                            <p className="text-muted-foreground text-sm leading-relaxed">{project.methodology}</p>
+                        </div>
+
+                        <div>
+                            <h4 className="font-semibold text-foreground mb-2">Key Results</h4>
+                            <p className="text-muted-foreground text-sm leading-relaxed">{project.results}</p>
+                        </div>
+
+                         <div className="pt-2">
+                             <h4 className="font-semibold text-foreground mb-1">Publications</h4>
+                            <p className="text-primary text-sm italic">{project.publications}</p>
+                        </div>
+                    </div>
+                  </div>
               </div>
-
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                {project.title}
-              </h3>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/30"
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
-
-              <p className="text-muted-foreground text-base mb-6 flex-1">
-                {project.description}
-              </p>
-
-              <div className="mt-auto pt-6 border-t border-border/50">
-                <p className="text-base">
-                  <span className="text-primary font-semibold">Impact: </span>
-                  <span className="text-muted-foreground">
-                    {project.impact}
-                  </span>
-                </p>
-              </div>
-
-              <p className="text-xs text-primary mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                Click for details →
-              </p>
             </div>
           ))}
         </div>
       </div>
-
-      <Dialog
-        open={!!selectedProject}
-        onOpenChange={() => setSelectedProject(null)}
-      >
-        <DialogContent
-          className="
-            glass-card border-primary/30
-            w-[95vw] max-w-3xl
-            max-h-[70vh] overflow-y-auto
-            outline-none
-            p-4 sm:p-6
-            fixed left-1/2 top-1/2
-            -translate-x-1/2 -translate-y-1/2
-            ml-90 mt-70
-          "
-        >
-          {selectedProject && (
-            <>
-              <DialogHeader>
-                <div className="flex items-start gap-4 mb-2">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center neon-border flex-shrink-0">
-                    <selectedProject.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <div>
-                    <DialogTitle className="text-xl text-foreground mb-2">
-                      {selectedProject.title}
-                    </DialogTitle>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.tools.map((tool) => (
-                        <span
-                          key={tool}
-                          className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/30"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <DialogDescription className="text-muted-foreground">
-                  {selectedProject.description}
-                </DialogDescription>
-              </DialogHeader>
-
-              <div className="grid sm:grid-cols-2 gap-4 mt-4">
-                <div className="glass-card p-4 bg-primary/5">
-                  <h4 className="text-sm font-semibold text-primary mb-1">
-                    Duration
-                  </h4>
-                  <p className="text-muted-foreground text-sm">
-                    {selectedProject.duration}
-                  </p>
-                </div>
-                <div className="glass-card p-4 bg-primary/5">
-                  <h4 className="text-sm font-semibold text-primary mb-1">
-                    Funding
-                  </h4>
-                  <p className="text-muted-foreground text-sm">
-                    {selectedProject.funding}
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-6 mt-4">
-                <div>
-                  <h4 className="text-sm font-semibold text-primary mb-2">
-                    Methodology
-                  </h4>
-                  <p className="text-muted-foreground">
-                    {selectedProject.methodology}
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-semibold text-primary mb-2">
-                    Key Results
-                  </h4>
-                  <p className="text-muted-foreground">
-                    {selectedProject.results}
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-semibold text-primary mb-2">
-                    Impact
-                  </h4>
-                  <p className="text-muted-foreground">
-                    {selectedProject.impact}
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-semibold text-primary mb-2">
-                    Publications & Outputs
-                  </h4>
-                  <p className="text-muted-foreground">
-                    {selectedProject.publications}
-                  </p>
-                </div>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
     </section>
   );
 }

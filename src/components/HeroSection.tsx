@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import ram from '@/assets/images/ram.png';
-import fishIcon from '@/assets/images/fish.svg';
-import virusIcon from '@/assets/images/virus.svg';
-import crabIcon from '@/assets/images/crab.svg';
+
 
 import resume from '@/assets/images/pdf/Ram_Kurapati_Resume.docx?url';
 
@@ -101,7 +99,7 @@ export function HeroSection() {
                 className="px-8 py-3 rounded-lg border border-muted-foreground/30 text-foreground font-semibold
                   hover:border-primary hover:text-primary transition-all duration-300"
               >
-                Download Resume
+                Download My Resume
               </a>
             </div>
           </div>

@@ -1,12 +1,16 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { BookOpen, User, FileText, MapPin, Send } from 'lucide-react';
+import { User, FileText, MapPin, Send } from 'lucide-react';
 import { LinkedInLogo, GmailLogo } from '@/components/Logos';
 
 import resume from '@/assets/images/pdf/Ram_Kurapati_Resume.docx?url';
+import googleScholar from '@/assets/images/PublicationsImages/google.png';
+import orcid from '@/assets/images/PublicationsImages/orcid.png';
+import gmail from '@/assets/images/PublicationsImages/gmail.png';
+
 
 const contactLinks = [
   {
-    icon: GmailLogo,
+    icon:   gmail,
     label: 'Email',
     value: 'kurapatirambabu5@gmail.com',
     href: 'mailto:researcher@university.edu',
@@ -18,16 +22,16 @@ const contactLinks = [
     href: 'https://www.linkedin.com/in/ram-kurapati-uapb/',
   },
   {
-    icon: BookOpen,
+    icon: googleScholar,
     label: 'Google Scholar',
     value: 'View Publications',
     href: 'https://scholar.google.com/citations?hl=en&user=mIDd0AoAAAAJ',
   },
   {
-    icon: User,
+    icon: orcid,
     label: 'ORCID',
     value: '0009-0000-7979-6563',
-    href: 'https://orcid.org/my-orcid?orcid=0009-0000-7979-6563',
+    href: 'https://orcid.org/0009-0000-7979-6563',
   },
   {
     icon: FileText,
@@ -75,7 +79,11 @@ export function ContactSection() {
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="contact-link-icon">
-                      <link.icon className="w-5 h-5" />
+                      {typeof link.icon === 'string' ? (
+                        <img src={link.icon} alt={link.label} className="w-5 h-5 object-contain" />
+                      ) : (
+                        <link.icon className="w-5 h-5" />
+                      )}
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">{link.label}</p>
@@ -93,7 +101,7 @@ export function ContactSection() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Based in</p>
-                <p className="text-foreground font-medium">University of Arkansas, Arkansas, USA</p>
+                <p className="text-foreground font-medium">University of Arkansas, at Pine Bluff, USA</p>
               </div>
             </div>
           </div>

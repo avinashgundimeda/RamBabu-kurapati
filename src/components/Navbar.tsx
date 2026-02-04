@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
-  { id: 'summary', label: 'Career Profile' },
-  // { id: 'skills', label: 'Skills' },
-  // { id: 'projects', label: 'Projects' },
+  { id: 'summary', label: 'Profile' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'publications', label: 'Publications' },
   { id: 'awards', label: 'Awards' },
-  { id: 'conferences', label: 'Conferences' },
   { id: 'media', label: 'Media Exposure' },
   { id: 'contact', label: 'Contact' },
 ];

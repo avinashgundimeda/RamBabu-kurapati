@@ -31,3 +31,29 @@ export const GmailLogo = ({ className }: { className?: string }) => (
     <path fill="#1976d2" d="M8,15H3v21h5V15z" />
   </svg>
 );
+
+export const ShrimpLogo = ({ className, size = 24 }: { className?: string; size?: number | string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    {/* Body */}
+    <path d="M16 6.5c-1-1-2.5-1.5-4-1.5C9 5 7 7 7 10c0 2 1 3 2 4" />
+    <path d="M8.5 14c-.5 1-1 2.5-1 4 0 1.5.5 2 1.5 2 2 0 3.5-1.5 4-3 1-2 2-3 2-4" />
+    <path d="M14 17c1 .5 2 .5 3 0" /> {/* Tail */}
+    {/* Legs */}
+    <path d="M9 14l-2 1" />
+    <path d="M10 16l-2 1" />
+    {/* Antennae */}
+    <path d="M12 5c2-2 5-2 6 0" />
+    <path d="M10 5C8 2 6 2 5 4" />
+  </svg>
+);

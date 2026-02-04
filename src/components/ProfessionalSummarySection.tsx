@@ -105,4 +105,3 @@ export function ProfessionalSummarySection() {
     </section>
   );
 }
-

@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { BookOpen, X, ExternalLink, Link as LinkIcon } from 'lucide-react';
 
-import hackathon from '@/assets/images/TableImages/hackathon.jpeg';
-import seminar from '@/assets/images/TableImages/seminar.jpeg';
-import teamMembers from '@/assets/images/TableImages/team.jpeg';
-import reviewteam from '@/assets/images/TableImages/reviewteam.jpeg';
-import projectreview from '@/assets/images/TableImages/projectreview.jpeg';
+import ResearchImage from '@/assets/images/PublicationsImages/Research.png';
+import ReviewImage1 from '@/assets/images/PublicationsImages/Review1.png';
+import ReviewImage2 from '@/assets/images/PublicationsImages/Review2.png';
 
-interface Publication {
+
+
+
+interface Publication { 
   title: string;
   impact: string;
   publicLink: string;
@@ -24,7 +25,7 @@ const publications: Publication[] = [
     impact: '0.5',
     publicLink: 'https://doi.org/10.33552/GJNFS.2025.05.000618',
     doiLink: 'https://doi.org/10.33552/GJNFS.2025.05.000618',
-    image: hackathon,
+    image: ResearchImage,
     description: 'This study evaluates the effect of increasing dietary levels of Artemia franciscana co-fed with formulated microparticle diets on the growth, survival and overall performance of Litopenaeus vannamei during early rearing. The aim is to identify an efficient feeding strategy that improves larval nutrition while reducing dependence on live feed alone.',
     type: 'research',
 
@@ -34,7 +35,7 @@ const publications: Publication[] = [
     impact : '11.3',
     publicLink : 'https://doi.org/10.1111/raq.70080',
     doiLink : 'https://doi.org/10.1111/raq.70080',
-    image : teamMembers,
+    image : ReviewImage1,
     description: 'This review critically examines modern Artemia enrichment strategies with a strong focus on improving fatty acid profiles, especially essential fatty acids (EPA, DHA and ARA), for aquaculture species. It highlights how enriched Artemia franciscana, when co-fed with formulated microparticle diets, enhances nutrient delivery, feed efficiency and larval performance in Litopenaeus vannamei. The study also discusses enrichment media, feeding protocols and their influence on growth, survival, stress resistance and larval quality. Overall, the review provides practical guidelines for hatchery managers to optimize live-feed enrichment and reduce nutritional limitations in early-stage shrimp and fish culture.',
     type : 'review',
   },
@@ -43,7 +44,7 @@ const publications: Publication[] = [
     impact : '11.3',
     publicLink : 'https://doi.org/10.1111/raq.70080',
     doiLink : 'https://doi.org/10.1111/raq.70080',
-    image : hackathon,
+    image : ReviewImage2,  
     description: 'This review summarizes organ-specific histopathological changes caused by major viral diseases in cultured finfish, focusing on lesions observed in the gills, liver, kidney, spleen and nervous tissues. It explains how characteristic cellular and tissue-level alterations support early and accurate diagnosis of viral infections in aquaculture systems. The study aligns diagnostic interpretation and reporting practices with guidelines provided by the World Organisation for Animal Health, strengthening disease surveillance, confirmation procedures and biosecurity decision-making in hatcheries and grow-out farms. The review also highlights the role of histopathology as a complementary tool to molecular diagnostics for improving outbreak management and reducing economic losses in finfish aquaculture.',
     type : 'review',
   },
@@ -65,12 +66,12 @@ export function PublicationsSection() {
         <table className="w-full text-sm text-left">
           <thead className="text-xs text-muted-foreground uppercase bg-secondary/10">
             <tr>
-              <th className="px-3 py-2">S.No</th>
-              <th className="px-3 py-2">Title</th>
-              <th className="px-3 py-2">Impact</th>
-              <th className="px-3 py-2">Link</th>
-              <th className="px-3 py-2">DOI</th>
-              <th className="px-3 py-2">Image</th>
+              <th className="px-4 py-3 w-[5%]">S.No</th>
+              <th className="px-4 py-3 w-[40%]">Title</th>
+              <th className="px-4 py-3 w-[15%]">Impact Factor</th>
+              <th className="px-4 py-3 w-[10%]">Link</th>
+              <th className="px-4 py-3 w-[10%]">DOI</th>
+              <th className="px-4 py-3 w-[20%]">Image</th>
             </tr>
           </thead>
           <tbody>
@@ -80,25 +81,25 @@ export function PublicationsSection() {
                 className="border-b border-primary/10 hover:bg-primary/5 transition-colors cursor-pointer group"
                 onClick={() => setSelectedPub(pub)}
               >
-                <td className="px-3 py-4">{idx + 1}</td>
-                <td className="px-3 py-4 font-medium text-foreground">
+                <td className="px-4 py-4">{idx + 1}</td>
+                <td className="px-4 py-4 font-medium text-foreground">
                   {pub.title}
                   <span className="block text-xs text-primary opacity-100 mt-1 ml-1">
                     More Info
                   </span>
                 </td>
-                <td className="px-3 py-4">{pub.impact}</td>
-                <td className="px-3 py-4">
+                <td className="px-4 py-4">{pub.impact}</td>
+                <td className="px-4 py-4">
                   <div className="flex items-center text-primary hover:text-accent transition-colors" role="button">
                     <ExternalLink className="w-4 h-4" />
                   </div>
                 </td>
-                <td className="px-3 py-4">
+                <td className="px-4 py-4">
                   <div className="flex items-center text-primary hover:text-accent transition-colors" role="button">
                     <LinkIcon className="w-4 h-4" />
                   </div>
                 </td>
-                <td className="px-3 py-4">
+                <td className="px-4 py-4">
                    <div className="w-12 h-12 rounded-md overflow-hidden bg-secondary/30 shadow-sm group-hover:shadow-md transition-all">
                       <img src={pub.image} alt="Pub" className="w-full h-full object-cover" />
                    </div>
@@ -117,7 +118,7 @@ export function PublicationsSection() {
       
       <div className="max-w-[95vw] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={ref} className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-           <h2 className="section-title neon-text text-center mb-16 ml-20">Publications</h2>
+           <h2 className="section-title neon-text text-center mb-16 mx-auto ml-20">Publications</h2>
         </div>
 
         <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -129,7 +130,9 @@ export function PublicationsSection() {
       </div>
       
       {selectedPub && (
-        <PublicationOverlay item={selectedPub} onClose={() => setSelectedPub(null)} />
+        <PublicationOverlay item={selectedPub} 
+        
+        onClose={() => setSelectedPub(null)} />
       )}
     </section>
   );
@@ -177,7 +180,7 @@ function PublicationOverlay({ item, onClose }: { item: Publication; onClose: () 
                    {item.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 ">
                   <a 
                     href={item.publicLink} 
                     className="flex items-center gap-2 px-6 py-3 rounded-md bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-all shadow-md hover:shadow-lg"

@@ -1,23 +1,26 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import {
-  Cpu,
   Dna,
-  Database,
   Code,
-  Activity,
   Microscope,
   FileText,
   Users,
   Lightbulb,
   Layers,
+  BarChart3,
 } from 'lucide-react';
+import ai from '@/assets/images/SkillsImages/ai.png';
+import shrimp from '@/assets/images/SkillsImages/shrimp.png'
+
+
+
 
 const technicalSkills = [
-  { name: 'Shrimp Nutrition & Disease Trials', percentage: 98, icon: Activity },
+  { name: 'Shrimp Nutrition & Disease Trials', percentage: 98, icon: shrimp },
   { name: 'Histology', percentage: 90, icon: Microscope },
   { name: 'Microbiology & Molecular Diagnostics', percentage: 82, icon: Dna },
-  { name: 'AI-driven computer-vision pipelines', percentage: 65, icon: Cpu },
-  { name: 'Statistical Analysis (R, SAS 9.4, Excel)', percentage: 60, icon: Database },
+  { name: 'AI-driven computer-vision pipelines', percentage: 65, icon: ai },
+  { name: 'Statistical Analysis (R, SAS 9.4, Excel)', percentage: 60, icon: BarChart3 },
 ];
 
 const professionalSkills = [
@@ -155,7 +158,15 @@ export function SkillsSection() {
                             shadow-[0_0_18px_rgba(0,255,255,0.25)]
                           "
                         >
-                          <Icon size={28} />
+                          {typeof Icon === 'string' ? (
+                            <img 
+                              src={Icon} 
+                              alt={skill.name} 
+                              className="w-7 h-7 object-contain" 
+                            />
+                          ) : (
+                            <Icon size={28} />
+                          )}
                         </div>
 
                         {/* glow ring */}
