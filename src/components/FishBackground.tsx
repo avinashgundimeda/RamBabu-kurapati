@@ -78,19 +78,19 @@ export function FishBackground() {
            // Jellyfish floating vertically
            this.x = Math.random() * width;
            this.baseY = Math.random() * height;
-           this.speedX = (Math.random() * 0.5 - 0.1); 
-           this.speedY = (Math.random() * 0.5 + 0.2) * -1;
+           this.speedX = (Math.random() * 0.2 - 0.05); 
+           this.speedY = (Math.random() * 0.2 + 0.1) * -1;
         } else if (type === 'fish') {
            this.x = Math.random() * width;
            this.baseY = Math.random() * height;
-           this.speedX = (Math.random() * 0.2 + 0.1) * this.direction; 
+           this.speedX = (Math.random() * 0.12 + 0.08) * this.direction; 
            this.speedY = 0;
            this.oscillationSpeed = 0.05;
         } else {
            // Shrimp 
            this.x = Math.random() * width;
            this.baseY = Math.random() * height;
-           this.speedX = (Math.random() * 0.15 + 0.05) * this.direction;
+           this.speedX = (Math.random() * 0.08 + 0.02) * this.direction;
            this.speedY = 0;
         }
         
@@ -104,9 +104,8 @@ export function FishBackground() {
         if (this.type === 'shrimp') {
              // Swim horizontal + slight sine wave + slight jerkiness
              this.x += this.speedX;
-             this.y = this.baseY + Math.sin(this.phase) * 15 - scrollY * 0.2; // Increased from 5 to 15
-             // Slight angle change to simulate body movement
-             this.angle = Math.sin(this.phase) * 0.1;
+             this.y = this.baseY - scrollY * 0.2; // Straight line
+             this.angle = 0; // No head movement
         } 
         else if (this.type === 'jelly') {
              // Move vertical
@@ -115,11 +114,8 @@ export function FishBackground() {
         }
         else if (this.type === 'fish') {
              this.x += this.speedX;
-             const wave = Math.sin(this.phase);
-             // More pronounced wave improved "swimming" feel
-             this.y = this.baseY + wave * 25 - scrollY * 0.2; // Increased from 10 to 25
-             // Rotate slightly based on vertical movement to simulate swimming direction
-             this.angle = Math.atan2(wave * 2, Math.abs(this.speedX) * 10) * this.direction * 0.5;
+             this.y = this.baseY - scrollY * 0.2; // Straight line
+             this.angle = 0; // No head movement
         }
 
         // --- WRAP AROUND ---

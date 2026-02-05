@@ -58,7 +58,7 @@ export function PublicationsSection() {
   const reviewPubs = publications.filter(p => p.type === 'review');
 
   const PublicationTable = ({ title, items }: { title: string, items: Publication[] }) => (
-    <div className="glass-card p-4 overflow-hidden flex flex-col h-full mx-20 ">
+    <div className="glass-card p-4 overflow-hidden flex flex-col h-full mx-4 md:mx-20 ">
       <h4 className="text-xl font-bold text-primary mb-4 flex items-center gap-2 ">
         <BookOpen className="w-5 h-5" /> {title}
       </h4>
@@ -130,7 +130,7 @@ export function PublicationsSection() {
       
       <div className="max-w-[95vw] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={ref} className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-           <h2 className="section-title neon-text text-center mb-16 mx-20">Publications</h2>
+           <h2 className="section-title neon-text text-center mb-16 mx-4 md:mx-20">Publications</h2>
         </div>
 
         <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

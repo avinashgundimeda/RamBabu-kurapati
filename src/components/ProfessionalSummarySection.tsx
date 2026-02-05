@@ -64,7 +64,7 @@ export function ProfessionalSummarySection() {
       
       <div className="max-w-[95vw] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={ref} className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="section-title neon-text text-center mx-auto ml-20">Professional Summary</h2>
+          <h2 className="section-title neon-text text-center mx-4 md:mx-20 mb-12">Professional Summary</h2>
         </div>
 
         <div className="space-y-16 mt-12">
@@ -74,7 +74,7 @@ export function ProfessionalSummarySection() {
               {experience.map((item, index) => (
                 <div
                   key={index}
-                  className="glass-card p-6 relative overflow-hidden group hover:neon-border transition-all duration-300 ml-20 mr-20"
+                  className="glass-card p-6 relative overflow-hidden group hover:neon-border transition-all duration-300 mx-4 md:mx-20"
                 >
                   <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-secondary" />
                   <div>
