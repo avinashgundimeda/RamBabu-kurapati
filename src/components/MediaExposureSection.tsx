@@ -85,9 +85,9 @@ export function MediaExposureSection() {
               <thead className="text-xs text-muted-foreground uppercase bg-secondary/10">
                 <tr>
                   <th className="px-4 py-3">Title</th>
+                  <th className="px-4 py-3">Date</th>
                   <th className="px-4 py-3">Link</th>
                   <th className="px-4 py-3">Photo</th>
-                  <th className="px-4 py-3">Details</th>
                 </tr>
               </thead>
               <tbody>
@@ -100,8 +100,11 @@ export function MediaExposureSection() {
                     <td className="px-4 py-4 font-medium text-foreground">
                        {item.title}
                        <span className="block text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity mt-1">
-                          Click for more details
+                          Click for more info
                        </span>
+                    </td>
+                    <td className="px-4 py-4 text-muted-foreground text-sm whitespace-nowrap">
+                       {item.date}
                     </td>
                     <td className="px-4 py-4">
                       <a 
@@ -119,7 +122,6 @@ export function MediaExposureSection() {
                           <img src={item.photo} alt="Media" className="w-full h-full object-cover" />
                        </div>
                     </td>
-                    <td className="px-4 py-4 text-muted-foreground">{item.details}</td>
                   </tr>
                 ))}
               </tbody>

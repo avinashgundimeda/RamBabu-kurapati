@@ -1,8 +1,9 @@
-import { Phone, Cloud, User, Github } from 'lucide-react';
+import { Phone, Cloud } from 'lucide-react';
 import { LinkedInLogo } from '@/components/Logos';
 import googleScholar from '@/assets/images/PublicationsImages/google.png';
-import orcid from '@/assets/images/PublicationsImages/orcid.png';
-import gmail from '@/assets/images/PublicationsImages/gmail.png';
+import gmail from '@/assets/contactSlider/gmail.png';
+import orcid from '@/assets/contactSlider/orcid.png';
+import researchgate from '@/assets/contactSlider/researchgate.png';
 
 interface ContactItem {
   icon: string | React.ElementType;
@@ -55,13 +56,13 @@ const contactItems: ContactItem[] = [
     href: 'https://orcid.org/my-orcid?orcid=0009-0000-7979-6563',
     color: 'text-green-600',
   },
-  //   {
-  //   icon: Github,
-  //   label: 'Github',
-  //   value: 'RamKurapati',
-  //   href: 'https://github.com',
-  //   color: 'text-white',
-  // },
+  {
+    icon: researchgate,
+    label: 'ResearchGate',
+    value: 'Ram Kurapati',
+    href: 'https://www.researchgate.net/profile/Ram-Kurapati',
+    color: 'text-white',
+  },
 ];
 
 export function ContactSlider() {
@@ -81,7 +82,7 @@ export function ContactSlider() {
               >
                 <div className={`p-3 rounded-full bg-white/5 ${item.color} group-hover/item:bg-white/10 transition-colors`}>
                   {typeof Icon === 'string' ? (
-                    <img src={Icon} alt={item.label} className="w-6 h-6 object-contain" />
+                    <img src={Icon} alt={item.label} className="w-10 h-10 object-contain" />
                   ) : (
                     <Icon className="w-6 h-6" />
                   )}
@@ -108,7 +109,7 @@ export function ContactSlider() {
               >
                 <div className={`p-3 rounded-full bg-white/5 ${item.color} group-hover/item:bg-white/10 transition-colors`}>
                   {typeof Icon === 'string' ? (
-                    <img src={Icon} alt={item.label} className="w-6 h-6 object-contain" />
+                    <img src={Icon} alt={item.label} className="w-10 h-10 object-contain" />
                   ) : (
                     <Icon className="w-6 h-6" />
                   )}

@@ -1,12 +1,12 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { User, FileText, MapPin, Send } from 'lucide-react';
-import { LinkedInLogo, GmailLogo } from '@/components/Logos';
+import { LinkedInLogo, GmailLogo, OrcidLogo } from '@/components/Logos';
 
 import resume from '@/assets/images/pdf/Ram_Kurapati_Resume.docx?url';
 import googleScholar from '@/assets/images/PublicationsImages/google.png';
-import orcid from '@/assets/images/PublicationsImages/orcid.png';
-import gmail from '@/assets/images/PublicationsImages/gmail.png';
-
+import gmail from '@/assets/contactSlider/gmail.png';
+import orcid from '@/assets/contactSlider/orcid.png';
+import download from '@/assets/contactSlider/download.png';
 
 const contactLinks = [
   {
@@ -34,7 +34,7 @@ const contactLinks = [
     href: 'https://orcid.org/0009-0000-7979-6563',
   },
   {
-    icon: FileText,
+    icon: download,
     label: 'Download CV',
     value: 'Curriculum Vitae (DOCX)',
     href: resume,
@@ -101,7 +101,7 @@ export function ContactSection() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Based in</p>
-                <p className="text-foreground font-medium">University of Arkansas, at Pine Bluff, USA</p>
+                <p className="text-foreground font-medium">University of Arkansas at Pine Bluff, USA</p>
               </div>
             </div>
           </div>

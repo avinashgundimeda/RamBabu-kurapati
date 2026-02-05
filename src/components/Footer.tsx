@@ -18,7 +18,7 @@ export function Footer() {
               Ram Kurapati
             </p>
             <p className="text-sm text-muted-foreground mt-1">
-              Aquaculture Research Scientist
+              Graduate research assistant
             </p>
           </div>
 

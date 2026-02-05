@@ -57,3 +57,19 @@ export const ShrimpLogo = ({ className, size = 24 }: { className?: string; size?
     <path d="M10 5C8 2 6 2 5 4" />
   </svg>
 );
+
+export const OrcidLogo = ({ className, size = 24 }: { className?: string; size?: number | string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    className={className}
+    fill="currentColor"
+  >
+    <path
+      fill="#A6CE39"
+      d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.422.947.947s-.422.947-.947.947c-.525 0-.947-.422-.947-.947s.422-.947.947-.947zm-.72 3.636h1.44v10.004h-1.44V8.014zm8.644 2.727c1.78.675 2.16 2.9.89 4.32-1.07 1.2-3.89 1.15-4.48.06-.06-.5-.06-3.84-.06-4.22.8-.52 2.62-.64 3.65-.16zM10.237 8.014h1.76v10.004h-1.63c-.1 0-.13-4.25-.13-4.9.06-2.5.47-4.49 4.07-4.49 1.95.05 3.3 1.34 3.3 3.6 0 2.5-1.5 4.3-3.6 4.3-1.6 0-3.1-.73-3.77-1.8v1.89h-1.63" 
+    />
+  </svg>
+);
