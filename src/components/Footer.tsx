@@ -15,7 +15,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <p className="text-lg font-bold neon-text font-orbitron tracking-wider">
-              Ram Kurapti
+              Ram Kurapati
             </p>
             <p className="text-sm text-muted-foreground mt-1">
               Aquaculture Research Scientist

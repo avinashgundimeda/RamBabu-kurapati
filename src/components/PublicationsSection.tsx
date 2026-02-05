@@ -58,8 +58,8 @@ export function PublicationsSection() {
   const reviewPubs = publications.filter(p => p.type === 'review');
 
   const PublicationTable = ({ title, items }: { title: string, items: Publication[] }) => (
-    <div className="glass-card p-4 overflow-hidden flex flex-col h-full mx-20">
-      <h4 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
+    <div className="glass-card p-4 overflow-hidden flex flex-col h-full mx-20 ">
+      <h4 className="text-xl font-bold text-primary mb-4 flex items-center gap-2 ">
         <BookOpen className="w-5 h-5" /> {title}
       </h4>
       <div className="overflow-x-auto flex-1">
@@ -71,7 +71,7 @@ export function PublicationsSection() {
               <th className="px-4 py-3 w-[15%]">Impact Factor</th>
               <th className="px-4 py-3 w-[10%]">Link</th>
               <th className="px-4 py-3 w-[10%]">DOI</th>
-              <th className="px-4 py-3 w-[20%]">Image</th>
+              <th className="px-4 py-3 w-[7%]">Image</th>
             </tr>
           </thead>
           <tbody>
@@ -90,14 +90,26 @@ export function PublicationsSection() {
                 </td>
                 <td className="px-4 py-4">{pub.impact}</td>
                 <td className="px-4 py-4">
-                  <div className="flex items-center text-primary hover:text-accent transition-colors" role="button">
+                  <a 
+                    href={pub.publicLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-primary hover:text-accent transition-colors" 
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <ExternalLink className="w-4 h-4" />
-                  </div>
+                  </a>
                 </td>
                 <td className="px-4 py-4">
-                  <div className="flex items-center text-primary hover:text-accent transition-colors" role="button">
+                  <a 
+                    href={pub.doiLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-primary hover:text-accent transition-colors" 
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <LinkIcon className="w-4 h-4" />
-                  </div>
+                  </a>
                 </td>
                 <td className="px-4 py-4">
                    <div className="w-12 h-12 rounded-md overflow-hidden bg-secondary/30 shadow-sm group-hover:shadow-md transition-all">
@@ -118,7 +130,7 @@ export function PublicationsSection() {
       
       <div className="max-w-[95vw] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={ref} className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-           <h2 className="section-title neon-text text-center mb-16 mx-auto ml-20">Publications</h2>
+           <h2 className="section-title neon-text text-center mb-16 mx-20">Publications</h2>
         </div>
 
         <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -183,6 +195,8 @@ function PublicationOverlay({ item, onClose }: { item: Publication; onClose: () 
                 <div className="flex flex-wrap gap-4 ">
                   <a 
                     href={item.publicLink} 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 px-6 py-3 rounded-md bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-all shadow-md hover:shadow-lg"
                   >
                     <ExternalLink size={18} />
@@ -190,6 +204,8 @@ function PublicationOverlay({ item, onClose }: { item: Publication; onClose: () 
                   </a>
                   <a 
                     href={item.doiLink} 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 px-6 py-3 rounded-md bg-secondary/10 hover:bg-secondary/20 text-foreground border border-secondary/20 hover:border-secondary/40 font-semibold transition-all"
                   >
                     <LinkIcon size={18} />

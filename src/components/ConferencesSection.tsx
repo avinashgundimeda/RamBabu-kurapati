@@ -16,35 +16,35 @@ import five from '@/assets/images/ConferencesImages/five.jpeg';
 
 const conferences = [
  {
-  title: 'Optimizing Artemia life stage utilization for improved performance of Litopenaeus vannamei post-larvae',
+  title: 'Optimizing Artemia life stage utilization',
   event: '83rd Annual Professional Agricultural Workers Conference (PAWC)',
   location: 'Renaissance Montgomery Hotel & Spa, Montgomery, Alabama, USA',
   date: 'November 16, 2025',
-  type: 'Research Presentation (Oral)',
+  type: 'Oral Presentation',
   image: one,
 },
 {
   title: 'AI in Aquaculture at UAPB',
-  event: 'Demonstrating Facilities in UAPB to industry professionals and stakeholders',
+  event: 'Demonstrating Facilities in UAPB to industry professionals',
   location: 'UAPB, S. J. Parker 1890 Extension Complex Auditorium, Pine Bluff',
   date: 'November 25, 2025',
-  type: 'Talk (Oral)',
+  type: 'Oral Presentation',
   image: two,
 },
 {
-  title: 'Optimizing Artemia feeding strategies for white shrimp Litopenaeus vannamei larvae: microbiome, immunity, and growth',
+  title: 'Optimizing Artemia feeding strategies for white shrimp',
   event: 'Aquaculture America 2026 organized by the World Aquaculture Society in partnership with other aquaculture organizations',
   location: 'Paris Las Vegas Hotel & Convention Center',
   date: 'February 17, 2026',
-  type: 'Research Presentation (Oral)',
+  type: 'Oral Presentation',
   image: three,
 },
 {
-  title: 'Application of Artificial Intelligence in Health Evaluation, Dietary Effects, and Disease Management in Aquatic Species',
+  title: 'Application of Artificial Intelligence in Health Evaluation',
   event: 'Thesis proposal defenses',
   location: 'UAPB, S. J. Parker 1890 Extension Complex Auditorium, Pine Bluff',
   date: 'January 7, 2025',
-  type: 'Research Presentation (Oral)',
+  type: 'Oral Presentation',
   image: four,
 },
 {
@@ -52,8 +52,8 @@ const conferences = [
   event: 'AI in Ag Hackathon',
   location: 'University of Arkansas, Fayetteville',
   date: 'September 13–14, 2025',
-  type: 'Talk (Oral)',
-  image: five,
+  type: 'Oral Presentation',
+  image: five,  
 }
 
 ];
@@ -65,7 +65,7 @@ export function ConferencesSection() {
   const [selectedConference, setSelectedConference] = useState<typeof conferences[0] | null>(null);
 
   return (
-    <section id="conferences" className="py-24 relative overflow-hidden">
+    <section id="conferences" className="py-24 relative overflow-hidden ">
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 via-transparent to-secondary/5" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -147,11 +147,11 @@ export function ConferencesSection() {
       </div>
 
       <Dialog open={!!selectedConference} onOpenChange={() => setSelectedConference(null)}>
-        <DialogContent className="glass-card border-primary/30 w-[95vw] max-w-4xl max-h-[85vh] overflow-y-auto outline-none p-0 overflow-hidden fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 ml-[29rem] mt-60">
+        <DialogContent className="glass-card border-primary/30 w-[95vw] max-w-6xl max-h-[95vh] overflow-y-auto outline-none p-0 overflow-hidden fixed left-[85rem] top-[35rem] -translate-x-1/2 -translate-y-1/2 z-50">
           {selectedConference && (
             <div className="flex flex-col md:flex-row h-full">
               {/* Image Section */}
-              <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-black/50">
+              <div className="w-full md:w-1/2 aspect-video relative bg-black/50">
                 {selectedConference.image ? (
                   <img 
                     src={selectedConference.image} 
@@ -159,7 +159,7 @@ export function ConferencesSection() {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-secondary/10">
+                  <div className="w-full h-full flex items-center justify-center bg-secondary/10 ">
                     <FileImage className="w-16 h-16 text-secondary/30" />
                   </div>
                 )}
