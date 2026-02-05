@@ -15,48 +15,49 @@ import four from '@/assets/images/ConferencesImages/four.jpeg';
 import five from '@/assets/images/ConferencesImages/five.jpeg';
 
 const conferences = [
- {
-  title: 'Optimizing Artemia life stage utilization',
-  event: '83rd Annual Professional Agricultural Workers Conference (PAWC)',
-  location: 'Renaissance Montgomery Hotel & Spa, Montgomery, Alabama, USA',
-  date: 'November 16, 2025',
-  type: 'Oral Presentation',
-  image: one,
-},
-{
-  title: 'AI in Aquaculture at UAPB',
-  event: 'Demonstrating Facilities in UAPB to industry professionals',
-  location: 'UAPB, S. J. Parker 1890 Extension Complex Auditorium, Pine Bluff',
-  date: 'November 25, 2025',
-  type: 'Oral Presentation',
-  image: two,
-},
-{
-  title: 'Optimizing Artemia feeding strategies for white shrimp',
-  event: 'Aquaculture America 2026 organized by the World Aquaculture Society in partnership with other aquaculture organizations',
-  location: 'Paris Las Vegas Hotel & Convention Center',
-  date: 'February 17, 2026',
-  type: 'Oral Presentation',
-  image: three,
-},
-{
-  title: 'Application of Artificial Intelligence in Health Evaluation',
-  event: 'Thesis proposal defenses',
-  location: 'UAPB, S. J. Parker 1890 Extension Complex Auditorium, Pine Bluff',
-  date: 'January 7, 2025',
-  type: 'Oral Presentation',
-  image: four,
-},
-{
-  title: 'U.S. region-specific high-yielding corn lines prediction',
-  event: 'AI in Ag Hackathon',
-  location: 'University of Arkansas, Fayetteville',
-  date: 'September 13–14, 2025',
-  type: 'Oral Presentation',
-  image: five,  
-}
-
+  {
+    title: 'Application of Artificial Intelligence in Health Evaluation',
+    event: 'Thesis proposal defenses',
+    location: 'UAPB, S. J. Parker 1890 Extension Complex Auditorium, Pine Bluff',
+    date: 'January 7, 2025',
+    type: 'Oral Presentation',
+    image: one,
+  },
+  {
+    title: 'U.S. region-specific high-yielding corn lines prediction',
+    event: 'AI in Ag Hackathon',
+    location: 'University of Arkansas, Fayetteville',
+    date: 'September 13–14, 2025',
+    type: 'Oral Presentation',
+    image: two,
+  },
+  {
+    title: 'Optimizing Artemia life stage utilization',
+    event: '83rd Annual Professional Agricultural Workers Conference (PAWC)',
+    location: 'Renaissance Montgomery Hotel & Spa, Montgomery, Alabama, USA',
+    date: 'November 16, 2025',
+    type: 'Oral Presentation',
+    image: three,
+  },
+  {
+    title: 'AI in Aquaculture at UAPB',
+    event: 'Demonstrating Facilities in UAPB to industry professionals',
+    location: 'UAPB, S. J. Parker 1890 Extension Complex Auditorium, Pine Bluff',
+    date: 'November 25, 2025',
+    type: 'Oral Presentation',
+    image: four,
+  },
+  {
+    title: 'Optimizing Artemia feeding strategies for white shrimp',
+    event:
+      'Aquaculture America 2026 organized by the World Aquaculture Society in partnership with other aquaculture organizations',
+    location: 'Paris Las Vegas Hotel & Convention Center',
+    date: 'February 17, 2026',
+    type: 'Oral Presentation',
+    image: five,
+  },
 ];
+
 
 
 
