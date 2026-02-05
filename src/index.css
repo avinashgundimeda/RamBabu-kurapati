@@ -676,25 +676,28 @@
 }
 
 /* Scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    hsl(var(--primary)),
-    hsl(var(--secondary))
-  );
-  border-radius: 4px;
+  background: transparent;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary));
+  background: transparent;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
 }
 
 /* Selection */
