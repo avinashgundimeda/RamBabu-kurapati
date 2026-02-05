@@ -1,12 +1,10 @@
 import { useEffect, useRef } from 'react';
-// import shrimpImgSrc from '../assets/images/Lshrimp.png';
-// import crabImgSrc from '../assets/images/crabb.png';
 import jellyImgSrc from '../assets/images/jelly.png';
-// import oysterImgSrc from '../assets/images/oyesters.png';
-import fishImgSrc from '../assets/images/smallfish.png';
+import fishImgSrc from '@/assets/FishesBackground/fish.png';
+import shrimpImgSrc from '@/assets/FishesBackground/shrimmp.png';
 
 
-type CreatureType = 'shrimp' | 'crab' | 'jelly' | 'oyster' | 'fish';
+type CreatureType = 'shrimp' | 'jelly' | 'fish';
 
 interface CreatureConfig {
   type: CreatureType;
@@ -16,12 +14,9 @@ interface CreatureConfig {
 }
 
 const CREATURES: CreatureConfig[] = [
-  { type: 'fish', src: fishImgSrc, count: 1, baseSize: 100 },
-  // { type: 'shrimp', src: shrimpImgSrc, count: 3, baseSize: 100 },
-  // { type: 'crab', src: crabImgSrc, count: 2, baseSize: 80 },
+  { type: 'fish', src: fishImgSrc, count: 3, baseSize: 100 },
+  { type: 'shrimp', src: shrimpImgSrc, count: 3, baseSize: 100 },
   { type: 'jelly', src: jellyImgSrc, count: 3, baseSize: 90 },
-  // { type: 'oyster', src: oysterImgSrc, count: 3, baseSize: 70 },
-  { type: 'fish', src: fishImgSrc, count: 4, baseSize: 90 },
 ];
 
 export function FishBackground() {
@@ -65,46 +60,37 @@ export function FishBackground() {
       direction: number; // 1 (right) or -1 (left)
       phase: number;
       oscillationSpeed: number;
+      angle: number; // For rotation
 
       constructor(type: CreatureType) {
         this.type = type;
         this.direction = Math.random() > 0.5 ? 1 : -1;
         this.phase = Math.random() * Math.PI * 2;
         this.oscillationSpeed = Math.random() * 0.05 + 0.02;
+        this.angle = 0;
 
-        const config = CREATURES.find(c => c.type === type)!;
-        // Scale down significantly as per previous logic, but adaptive to screen
-        // Previous logic: ~0.06 to 0.1 scale.
+        // const config = CREATURES.find(c => c.type === type)!; // Unused, but previously here
+        // Scale logic
         const scale = Math.random() * 0.05 + 0.05; 
         this.size = scale; 
 
-        if (type === 'crab') {
-           this.x = Math.random() * width;
-           this.baseY = height * (0.8 + Math.random() * 0.2); 
-           this.speedX = (Math.random() * 0.3 + 0.2) * this.direction;
-           this.speedY = 0;
-        } else if (type === 'jelly') {
+        if (type === 'jelly') {
            // Jellyfish floating vertically
            this.x = Math.random() * width;
            this.baseY = Math.random() * height;
            this.speedX = (Math.random() * 0.5 - 0.1); 
            this.speedY = (Math.random() * 0.5 + 0.2) * -1;
-        } else if (type === 'oyster') {
-           // Oysters largely static, maybe very slow drift
-           this.x = Math.random() * width;
-           this.baseY = Math.random() * height;
-           this.speedX = (Math.random() * 0.1 - 0.05); 
-           this.speedY = (Math.random() * 0.1 - 0.05);
         } else if (type === 'fish') {
            this.x = Math.random() * width;
            this.baseY = Math.random() * height;
-           this.speedX = (Math.random() * 0.1 + 0.05) * this.direction; 
-           this.speedY = 10;
+           this.speedX = (Math.random() * 0.2 + 0.1) * this.direction; 
+           this.speedY = 0;
+           this.oscillationSpeed = 0.05;
         } else {
-           // Shrimp (default swimmer)
+           // Shrimp 
            this.x = Math.random() * width;
            this.baseY = Math.random() * height;
-           this.speedX = (Math.random() * 0.02 + 0.01) * this.direction;
+           this.speedX = (Math.random() * 0.15 + 0.05) * this.direction;
            this.speedY = 0;
         }
         
@@ -116,32 +102,24 @@ export function FishBackground() {
 
         // --- MOVEMENT LOGIC ---
         if (this.type === 'shrimp') {
-             // Swim horizontal + slight sine wave
+             // Swim horizontal + slight sine wave + slight jerkiness
              this.x += this.speedX;
-             this.y = this.baseY + Math.sin(this.phase) * 10 - scrollY * 0.2;
-        } 
-        else if (this.type === 'crab') {
-             // Crawl horizontal
-             this.x += this.speedX;
-             // Crabs stick to "ground" relative to screen, but let's let them scroll with page slightly
-             this.y = this.baseY - scrollY * 0.1; 
+             this.y = this.baseY + Math.sin(this.phase) * 15 - scrollY * 0.2; // Increased from 5 to 15
+             // Slight angle change to simulate body movement
+             this.angle = Math.sin(this.phase) * 0.1;
         } 
         else if (this.type === 'jelly') {
              // Move vertical
              this.y += this.speedY; // Moving up
              this.x += Math.sin(this.phase) * 0.5; // Slight side wobble
-             
-
-        }
-        else if (this.type === 'oyster') {
-             // Drift very slowly
-             this.x += this.speedX;
-             this.baseY += this.speedY;
-             this.y = this.baseY - scrollY * 0.2;
         }
         else if (this.type === 'fish') {
              this.x += this.speedX;
-             this.y = this.baseY + Math.sin(this.phase * 2) * 15 - scrollY * 0.2;
+             const wave = Math.sin(this.phase);
+             // More pronounced wave improved "swimming" feel
+             this.y = this.baseY + wave * 25 - scrollY * 0.2; // Increased from 10 to 25
+             // Rotate slightly based on vertical movement to simulate swimming direction
+             this.angle = Math.atan2(wave * 2, Math.abs(this.speedX) * 10) * this.direction * 0.5;
         }
 
         // --- WRAP AROUND ---
@@ -175,17 +153,14 @@ export function FishBackground() {
         ctx!.translate(this.x, this.y);
 
         // --- TRANSFORMS PER TYPE ---
-        if (this.type === 'oyster') {
-             // "Breathing" / Opening effect using scale
-             const breathe = 1 + Math.sin(this.phase) * 0.1; // Scale 0.9 to 1.1
-             ctx!.scale(this.size * breathe, this.size * breathe);
-        } 
-        else if (this.type === 'jelly') {
+        if (this.type === 'jelly') {
              // Pulsating vertical stretch
              const squish = 1 + Math.sin(this.phase) * 0.05;
              ctx!.scale(this.size * squish, this.size / squish);
         }
         else {
+             // Rotate for swimming effect
+             ctx!.rotate(this.angle);
              // Standard flip for direction
              ctx!.scale(this.direction * this.size, this.size);
         }

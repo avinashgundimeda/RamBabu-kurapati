@@ -82,9 +82,9 @@ export function ContactSlider() {
               >
                 <div className={`p-3 rounded-full bg-white/5 ${item.color} group-hover/item:bg-white/10 transition-colors`}>
                   {typeof Icon === 'string' ? (
-                    <img src={Icon} alt={item.label} className="w-10 h-10 object-contain" />
+                    <img src={Icon} alt={item.label} className="w-6 h-6 object-contain" />
                   ) : (
-                    <Icon className="w-6 h-6" />
+                    <Icon className="w-5 h-5" />
                   )}
                 </div>
                 <div className="flex flex-col text-left">
@@ -109,9 +109,9 @@ export function ContactSlider() {
               >
                 <div className={`p-3 rounded-full bg-white/5 ${item.color} group-hover/item:bg-white/10 transition-colors`}>
                   {typeof Icon === 'string' ? (
-                    <img src={Icon} alt={item.label} className="w-10 h-10 object-contain" />
+                    <img src={Icon} alt={item.label} className="w-6 h-6 object-contain" />
                   ) : (
-                    <Icon className="w-6 h-6" />
+                    <Icon className="w-5 h-5" />
                   )}
                 </div>
                 <div className="flex flex-col text-left">
