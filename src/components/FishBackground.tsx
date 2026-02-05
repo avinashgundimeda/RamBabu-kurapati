@@ -16,7 +16,7 @@ interface CreatureConfig {
 const CREATURES: CreatureConfig[] = [
   { type: 'fish', src: fishImgSrc, count: 3, baseSize: 100 },
   { type: 'shrimp', src: shrimpImgSrc, count: 3, baseSize: 100 },
-  { type: 'jelly', src: jellyImgSrc, count: 3, baseSize: 90 },
+  { type: 'jelly', src: jellyImgSrc, count: 5, baseSize: 90 },
 ];
 
 export function FishBackground() {
@@ -83,14 +83,14 @@ export function FishBackground() {
         } else if (type === 'fish') {
            this.x = Math.random() * width;
            this.baseY = Math.random() * height;
-           this.speedX = (Math.random() * 0.12 + 0.08) * this.direction; 
+           this.speedX = (Math.random() * 0.8 + 0.4) * this.direction; 
            this.speedY = 0;
            this.oscillationSpeed = 0.05;
         } else {
            // Shrimp 
            this.x = Math.random() * width;
            this.baseY = Math.random() * height;
-           this.speedX = (Math.random() * 0.08 + 0.02) * this.direction;
+           this.speedX = (Math.random() * 0.6 + 0.2) * this.direction;
            this.speedY = 0;
         }
         
