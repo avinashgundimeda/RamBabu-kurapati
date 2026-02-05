@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Lock({
   children,
@@ -7,24 +7,44 @@ export default function Lock({
 }) {
   const PASSWORD = "1234";
 
-  const [unlocked, setUnlocked] = useState(
-    localStorage.getItem("site-unlocked") === "yes"
-  );
-
+  const [unlocked, setUnlocked] = useState(false);
   const [pwd, setPwd] = useState("");
 
   const unlock = () => {
     if (pwd === PASSWORD) {
-      localStorage.setItem("site-unlocked", "yes");
       setUnlocked(true);
+      setPwd("");
     } else {
       alert("Wrong password");
     }
   };
 
-  if (unlocked) return <>{children}</>;
+  // Re-lock when tab becomes hidden
+  useEffect(() => {
+    const handler = () => {
+      if (document.hidden) {
+        setUnlocked(false);
+      }
+    };
 
-  return (
+    document.addEventListener("visibilitychange", handler);
+    return () =>
+      document.removeEventListener("visibilitychange", handler);
+  }, []);
+
+  // Re-lock on refresh / close
+  useEffect(() => {
+    const handler = () => {
+      setUnlocked(false);
+    };
+
+    window.addEventListener("beforeunload", handler);
+    return () =>
+      window.removeEventListener("beforeunload", handler);
+  }, []);
+
+  if (!unlocked) {
+    return (
     <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-background">
       <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent opacity-50" />
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
@@ -51,5 +71,8 @@ export default function Lock({
         </div>
       </div>
     </div>
-  );
+    );
+  }
+
+  return <>{children}</>;
 }
