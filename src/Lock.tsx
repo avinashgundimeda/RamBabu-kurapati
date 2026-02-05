@@ -1,42 +1,55 @@
 import { useState } from "react";
 
-const PASSWORD = "1234";
+export default function Lock({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const PASSWORD = "1234";
 
-export default function Lock({ children }: { children: React.ReactNode }) {
-  const [ok, setOk] = useState(
+  const [unlocked, setUnlocked] = useState(
     localStorage.getItem("site-unlocked") === "yes"
   );
+
   const [pwd, setPwd] = useState("");
 
-  const submit = () => {
+  const unlock = () => {
     if (pwd === PASSWORD) {
       localStorage.setItem("site-unlocked", "yes");
-      setOk(true);
+      setUnlocked(true);
     } else {
       alert("Wrong password");
     }
   };
 
-  if (ok) return <>{children}</>;
+  if (unlocked) return <>{children}</>;
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        gap: 12,
-      }}
-    >
-      <h2>Enter password</h2>
-      <input
-        type="password"
-        value={pwd}
-        onChange={(e) => setPwd(e.target.value)}
-      />
-      <button onClick={submit}>Unlock</button>
+    <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-background">
+      <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent opacity-50" />
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
+      
+      <div className="glass-card p-10 flex flex-col gap-6 items-center max-w-sm w-full mx-4 border-primary/30 relative z-10 animate-fade-in-up">
+        <h3 className="text-3xl font-bold font-orbitron neon-text mb-2">ACCESS LOCKED</h3>
+
+        <div className="w-full space-y-4">
+          <input
+            type="password"
+            placeholder="Enter Access Code"
+            value={pwd}
+            onChange={(e) => setPwd(e.target.value)}
+            className="w-full bg-secondary/10 border border-primary/30 rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground outline-none focus:border-primary focus:shadow-[0_0_15px_rgba(var(--primary),0.3)] transition-all font-rajdhani text-center tracking-widest"
+            onKeyDown={(e) => e.key === 'Enter' && unlock()}
+          />
+
+          <button 
+            onClick={unlock}
+            className="neon-button w-full flex justify-center items-center"
+          >
+            Unlock System
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
