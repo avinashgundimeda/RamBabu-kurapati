@@ -8,6 +8,7 @@ import {
   Lightbulb,
   Layers,
   BarChart3,
+  BookOpen,
 } from 'lucide-react';
 import ai from '@/assets/images/SkillsImages/ai.png';
 import shrimp from '@/assets/images/SkillsImages/shrimp.png'
@@ -21,6 +22,7 @@ const technicalSkills = [
   { name: 'Microbiology & Molecular Diagnostics', percentage: 82, icon: Dna },
   { name: 'AI-driven computer-vision pipelines', percentage: 65, icon: ai },
   { name: 'Statistical Analysis (R, SAS 9.4, Excel)', percentage: 60, icon: BarChart3 },
+  { name: 'Publications', percentage: 100, icon: BookOpen },
 ];
 
 const professionalSkills = [
